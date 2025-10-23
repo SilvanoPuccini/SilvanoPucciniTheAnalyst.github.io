@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Análisis de Datos de Clientes | Silvano Puccini</title>
+		<title>Market Basket Analysis | Silvano Puccini</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -21,7 +21,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li><a href="../index.html">Inicio</a></li>
-							<li class="active"><a href="analisis-clientes.html">Análisis de Clientes</a></li>
+							<li class="active"><a href="analisis-clientes.html">Market Basket Analysis</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -35,228 +35,65 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">Proyecto de Data Analytics</span>
-									<h1>Análisis de Datos de Clientes<br />
-									Python, Pandas & Visualización</h1>
-									<p>Proyecto enfocado en la limpieza, transformación y visualización de datos de clientes para optimizar estrategias comerciales y mejorar la segmentación de mercado.</p>
+									<span class="date">Proyecto de Análisis de Datos</span>
+									<h1>Market Basket Analysis<br />
+									Análisis de Canasta de Mercado</h1>
+									<p>Análisis de 4.9 millones de transacciones para descubrir patrones de compra y reglas de asociación que optimicen estrategias de cross-selling.</p>
 								</header>
-								<div class="image main"><img src="../images/analisis-clientes.jpg" alt="Análisis de Clientes con Python" /></div>
+								<div class="image main"><img src="../images/analisis-clientes.jpg" alt="Market Basket Analysis" /></div>
 
 								<h2>📋 Descripción del Proyecto</h2>
-								<p>Este proyecto demuestra el ciclo completo de análisis de datos aplicado a información de clientes de una empresa. Desde la ingesta de datos en bruto hasta la generación de insights accionables, el proyecto utiliza Python y sus principales librerías de análisis de datos para transformar información dispersa en conocimiento estratégico.</p>
+								<p>Market Basket Analysis es una técnica de minería de datos para descubrir relaciones entre productos. Este proyecto analiza <strong>4,975,718 transacciones</strong> del supermercado "SanoYFresco" para identificar qué productos se compran frecuentemente juntos.</p>
 
-								<h2>🎯 Objetivos del Proyecto</h2>
+								<h2>📊 Dataset</h2>
 								<ul>
-									<li><strong>Limpieza de Datos:</strong> Identificar y corregir datos faltantes, duplicados e inconsistencias</li>
-									<li><strong>Análisis Exploratorio (EDA):</strong> Descubrir patrones, tendencias y correlaciones en el comportamiento de clientes</li>
-									<li><strong>Segmentación:</strong> Agrupar clientes en segmentos significativos para estrategias personalizadas</li>
-									<li><strong>Visualización:</strong> Crear gráficos claros y efectivos para comunicar hallazgos</li>
-									<li><strong>Insights Accionables:</strong> Generar recomendaciones basadas en datos para el equipo comercial</li>
+									<li><strong>Total de transacciones:</strong> 4,975,718 registros</li>
+									<li><strong>Pedidos únicos:</strong> 2,060,188 pedidos</li>
+									<li><strong>Productos únicos:</strong> 40 productos orgánicos</li>
+									<li><strong>Período:</strong> Año 2023 completo</li>
 								</ul>
 
-								<h2>⚙️ Flujo de Trabajo del Proyecto</h2>
+								<h2>📈 Resultados Principales</h2>
 
-								<h3>1. Ingesta y Exploración Inicial</h3>
-								<pre><code>import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Cargar datos
-df = pd.read_csv('clientes_data.csv')
-
-# Exploración inicial
-print(df.head())
-print(df.info())
-print(df.describe())
-</code></pre>
-
-								<h3>2. Limpieza y Preparación de Datos</h3>
-								<ul>
-									<li><strong>Tratamiento de valores nulos:</strong> Imputación inteligente según el tipo de dato (media, mediana, moda, o eliminación)</li>
-									<li><strong>Eliminación de duplicados:</strong> Identificación y manejo de registros duplicados</li>
-									<li><strong>Normalización de datos:</strong> Estandarización de formatos (fechas, textos, categorías)</li>
-									<li><strong>Detección de outliers:</strong> Uso de IQR y Z-score para identificar valores atípicos</li>
-									<li><strong>Creación de variables:</strong> Ingeniería de features (ej: antigüedad del cliente, frecuencia de compra, valor total)</li>
-								</ul>
-
-								<h3>3. Análisis Exploratorio de Datos (EDA)</h3>
-								<pre><code># Distribución de clientes por región
-df['region'].value_counts().plot(kind='bar', title='Clientes por Región')
-
-# Correlación entre variables numéricas
-correlation_matrix = df.corr()
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
-
-# Análisis de frecuencia de compras
-df.groupby('cliente_id')['fecha_compra'].count().hist(bins=20)
-</code></pre>
-
-								<h3>4. Segmentación de Clientes</h3>
-								<p>Implementación de clustering (K-Means) para identificar grupos de clientes con características similares:</p>
-								<pre><code>from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-
-# Preparar datos para clustering
-features = ['valor_total_compras', 'frecuencia_compras', 'antiguedad_dias']
-X = df[features]
-
-# Normalizar
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-# K-Means con 4 segmentos
-kmeans = KMeans(n_clusters=4, random_state=42)
-df['segmento'] = kmeans.fit_predict(X_scaled)
-</code></pre>
-
-								<h3>5. Visualización de Resultados</h3>
-								<ul>
-									<li>Gráficos de distribución (histogramas, box plots)</li>
-									<li>Análisis temporal (series de tiempo de compras)</li>
-									<li>Mapas de calor (correlaciones)</li>
-									<li>Gráficos de dispersión (relaciones entre variables)</li>
-									<li>Visualización de segmentos (scatter plots 3D, pair plots)</li>
-								</ul>
-
-								<h2>🛠️ Tecnologías Utilizadas</h2>
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<h3>Análisis de Datos</h3>
-										<ul>
-											<li><strong>Python 3.x</strong> - Lenguaje principal</li>
-											<li><strong>Pandas</strong> - Manipulación de datos</li>
-											<li><strong>NumPy</strong> - Cálculos numéricos</li>
-											<li><strong>Scikit-learn</strong> - Machine Learning (clustering)</li>
-										</ul>
-									</div>
-									<div class="col-6 col-12-small">
-										<h3>Visualización</h3>
-										<ul>
-											<li><strong>Matplotlib</strong> - Gráficos estáticos</li>
-											<li><strong>Seaborn</strong> - Visualizaciones estadísticas</li>
-											<li><strong>Plotly</strong> - Gráficos interactivos</li>
-											<li><strong>Jupyter Notebook</strong> - Entorno de desarrollo</li>
-										</ul>
-									</div>
-								</div>
-
-								<h2>📊 Hallazgos Clave</h2>
-
-								<h3>Segmentación de Clientes (4 Grupos Identificados)</h3>
+								<h3>Top 5 Reglas de Asociación</h3>
 								<div class="table-wrapper">
 									<table>
 										<thead>
 											<tr>
-												<th>Segmento</th>
-												<th>Características</th>
-												<th>% del Total</th>
-												<th>Estrategia Recomendada</th>
+												<th>Si compra...</th>
+												<th>También compra...</th>
+												<th>Lift</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td><strong>VIP</strong></td>
-												<td>Alto valor, alta frecuencia</td>
-												<td>15%</td>
-												<td>Programas de lealtad exclusivos, atención personalizada</td>
-											</tr>
-											<tr>
-												<td><strong>Potenciales</strong></td>
-												<td>Alto valor, baja frecuencia</td>
-												<td>20%</td>
-												<td>Campañas de reactivación, incentivos de compra recurrente</td>
-											</tr>
-											<tr>
-												<td><strong>Habituales</strong></td>
-												<td>Valor medio, alta frecuencia</td>
-												<td>35%</td>
-												<td>Cross-selling, up-selling, mantener engagement</td>
-											</tr>
-											<tr>
-												<td><strong>Ocasionales</strong></td>
-												<td>Bajo valor, baja frecuencia</td>
-												<td>30%</td>
-												<td>Optimizar costos de adquisición, evaluarcontinuidad</td>
-											</tr>
+											<tr><td>Cilantro Orgánico</td><td>Limones</td><td>3.6x</td></tr>
+											<tr><td>Cebolla Roja</td><td>Cilantro</td><td>3.6x</td></tr>
+											<tr><td>Ajo</td><td>Cebolla Amarilla</td><td>3.5x</td></tr>
+											<tr><td>Apio</td><td>Zanahorias</td><td>3.3x</td></tr>
+											<tr><td>Apio</td><td>Pepino</td><td>3.1x</td></tr>
 										</tbody>
 									</table>
 								</div>
 
-								<h3>Insights Accionables</h3>
+								<h2>💼 Insights Accionables</h2>
 								<ul>
-									<li><strong>Churn Risk:</strong> El 23% de clientes no ha comprado en los últimos 6 meses → Campaña de reactivación urgente</li>
-									<li><strong>Oportunidad de Cross-Sell:</strong> Clientes del segmento "Potenciales" compran productos de alto margen pero con poca frecuencia → Ofertas de productos complementarios</li>
-									<li><strong>Estacionalidad:</strong> Pico de compras en Q4 (noviembre-diciembre) → Aumentar inventario y personal</li>
-									<li><strong>Región de Crecimiento:</strong> Zona Sur tiene el mayor crecimiento de clientes nuevos (+45% YoY) → Expandir operaciones</li>
-									<li><strong>Valor de Vida del Cliente (CLV):</strong> Segmento VIP genera 60% de los ingresos con solo 15% de clientes → Priorizar retención</li>
+									<li><strong>Layout:</strong> Colocar cilantro cerca de limones</li>
+									<li><strong>Promociones:</strong> "Pack Guacamole" (Aguacate + Cilantro + Limón)</li>
+									<li><strong>Recomendaciones:</strong> Al agregar cilantro → Sugerir limones</li>
+									<li><strong>Inventario:</strong> Mantener stock correlacionado</li>
 								</ul>
 
-								<h2>💡 Técnicas de Análisis Aplicadas</h2>
+								<h2>🛠️ Tecnologías</h2>
 								<ul>
-									<li><strong>RFM Analysis:</strong> Recencia, Frecuencia, Valor Monetario para scoring de clientes</li>
-									<li><strong>Cohort Analysis:</strong> Análisis de cohortes para entender retención por períodos</li>
-									<li><strong>Customer Lifetime Value (CLV):</strong> Cálculo del valor esperado de cada cliente</li>
-									<li><strong>Churn Prediction:</strong> Identificación de clientes con riesgo de abandono</li>
-									<li><strong>Market Basket Analysis:</strong> Productos frecuentemente comprados juntos</li>
+									<li>Python (Pandas, SQLite, Itertools)</li>
+									<li>Google Colab</li>
+									<li>Market Basket Analysis (Soporte, Confianza, Lift)</li>
 								</ul>
 
-								<h2>🎯 Resultados e Impacto</h2>
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>Métrica</th>
-												<th>Resultado</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Registros procesados</td>
-												<td>50,000+ registros de clientes</td>
-											</tr>
-											<tr>
-												<td>Calidad de datos mejorada</td>
-												<td>De 73% a 98% de completitud</td>
-											</tr>
-											<tr>
-												<td>Segmentos identificados</td>
-												<td>4 segmentos con características distintivas</td>
-											</tr>
-											<tr>
-												<td>Insights generados</td>
-												<td>12 recomendaciones estratégicas</td>
-											</tr>
-											<tr>
-												<td>Tiempo de análisis</td>
-												<td>Reducción de 2 semanas a 2 días</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-
-								<h2>📈 Próximas Mejoras</h2>
-								<ul>
-									<li>Implementar modelo predictivo de Churn con Machine Learning (Random Forest, XGBoost)</li>
-									<li>Automatizar el pipeline de análisis con Apache Airflow</li>
-									<li>Crear dashboard interactivo en Streamlit o Dash</li>
-									<li>Integrar análisis de sentimiento de feedback de clientes (NLP)</li>
-									<li>Implementar A/B testing para validar estrategias por segmento</li>
-								</ul>
-
-								<h2>🔗 Enlaces del Proyecto</h2>
+								<h2>🔗 Enlaces</h2>
 								<ul class="actions special">
-									<li><a href="https://github.com/silvanopuccini/analisis-clientes" class="button large primary">Ver Código en GitHub</a></li>
-									<li><a href="../index.html" class="button large">Volver al Portafolio</a></li>
-								</ul>
-
-								<hr />
-
-								<h2>📧 ¿Interesado en Análisis de Clientes?</h2>
-								<p>Si necesitas ayuda con análisis de datos de clientes, segmentación o estrategias basadas en datos, contáctame:</p>
-								<ul>
-									<li><strong>Email:</strong> <a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></li>
-									<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Silvano-Puccini">linkedin.com/in/Silvano-Puccini</a></li>
+									<li><a href="https://github.com/silvanopuccini/SilvanoPucciniTheAnalyst.github.io/tree/main/proyectos/analisis-clientes" class="button large primary">Ver en GitHub</a></li>
+									<li><a href="../index.html" class="button large">Volver</a></li>
 								</ul>
 
 							</section>
