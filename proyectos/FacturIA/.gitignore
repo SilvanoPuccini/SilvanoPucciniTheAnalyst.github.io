@@ -1,0 +1,36 @@
+# API Keys y variables de entorno sensibles
+.env
+*.env
+
+# Base de datos SQLite con datos personales
+*.db
+*.sqlite
+*.sqlite3
+
+# Facturas y documentos PDF (datos privados)
+facturas/
+*.pdf
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv
+
+# Archivos de Power BI temporales
+*.pbix.tmp
+~$*.pbix
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
