@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>FacturIA - Sistema de Automatización de Facturas | Silvano Puccini</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Silvano Puccini</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="../index.html">Inicio</a></li>
+							<li class="active"><a href="facturia.html">FacturIA</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">Proyecto de Análisis de Datos</span>
+									<h1>FacturIA<br />
+									Sistema de Automatización de Facturas con IA</h1>
+									<p>Sistema automatizado para procesar facturas en PDF, extraer información con Inteligencia Artificial (OpenAI GPT-4), almacenar datos en SQLite y visualizarlos en Power BI.</p>
+								</header>
+								<div class="image main"><img src="../images/facturia-portada.png" alt="FacturIA Dashboard" /></div>
+
+								<h2>📋 Descripción del Proyecto</h2>
+								<p>FacturIA es un sistema completo de automatización diseñado para optimizar la gestión documental de facturas en formato PDF. El proyecto integra tecnologías modernas de análisis de datos e inteligencia artificial para transformar documentos no estructurados en información valiosa para la toma de decisiones financieras.</p>
+
+								<p><strong>Origen:</strong> Este proyecto fue desarrollado a partir de una práctica del curso "Introductorio a Data Analytics" de TuPrimeraExperiencia.com, donde adapté y amplié la propuesta original incorporando mejoras en la estructura del código, presentación de resultados y documentación profesional.</p>
+
+								<h2>🎯 Problema que Resuelve</h2>
+								<p>Las empresas reciben decenas o cientos de facturas mensualmente en formato PDF. El procesamiento manual de estos documentos consume tiempo valioso y es propenso a errores. FacturIA automatiza completamente este proceso:</p>
+								<ul>
+									<li><strong>Antes:</strong> Abrir cada PDF, copiar datos manualmente a Excel, verificar importes, clasificar por proveedor (horas de trabajo)</li>
+									<li><strong>Con FacturIA:</strong> Procesar automáticamente todas las facturas en minutos, extraer datos con IA, almacenar en base de datos y visualizar en dashboards interactivos</li>
+								</ul>
+
+								<h2>⚙️ Cómo Funciona (Flujo de Trabajo)</h2>
+								<ol>
+									<li><strong>Ingesta de Datos:</strong> El sistema recorre carpetas organizadas con facturas en PDF (por ejemplo: enero/, febrero/, etc.)</li>
+									<li><strong>Extracción de Texto:</strong> Utiliza PyMuPDF para extraer el texto completo de cada factura</li>
+									<li><strong>Procesamiento con IA:</strong> Envía el texto a OpenAI GPT-4 con un prompt optimizado que instruye al modelo a extraer:
+										<ul>
+											<li>Fecha de emisión (formato dd/mm/aaaa)</li>
+											<li>Nombre del proveedor</li>
+											<li>Concepto o descripción del servicio/producto</li>
+											<li>Importe total</li>
+											<li>Moneda (EUR, USD, u otros)</li>
+										</ul>
+									</li>
+									<li><strong>Estructuración:</strong> La IA devuelve los datos en formato CSV estructurado</li>
+									<li><strong>Conversión de Divisas:</strong> Convierte automáticamente dólares a euros (tasa configurable)</li>
+									<li><strong>Almacenamiento:</strong> Guarda todos los registros en una base de datos SQLite</li>
+									<li><strong>Visualización:</strong> Conecta Power BI a la base de datos para crear dashboards interactivos</li>
+								</ol>
+
+								<h2>🛠️ Tecnologías Utilizadas</h2>
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<h3>Backend & Procesamiento</h3>
+										<ul>
+											<li><strong>Python 3.x</strong> - Lenguaje principal</li>
+											<li><strong>Pandas</strong> - Manipulación de datos</li>
+											<li><strong>PyMuPDF (fitz)</strong> - Extracción de texto de PDFs</li>
+											<li><strong>OpenAI API</strong> - Procesamiento con GPT-4</li>
+											<li><strong>SQLAlchemy</strong> - ORM para base de datos</li>
+											<li><strong>python-dotenv</strong> - Gestión de variables de entorno</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Almacenamiento & Visualización</h3>
+										<ul>
+											<li><strong>SQLite</strong> - Base de datos ligera</li>
+											<li><strong>Power BI</strong> - Dashboards interactivos</li>
+											<li><strong>ODBC</strong> - Conexión Power BI ↔ SQLite</li>
+										</ul>
+									</div>
+								</div>
+
+								<h2>📊 Resultados Obtenidos</h2>
+								<h3>Dashboard de Power BI</h3>
+								<p>El sistema genera un dashboard interactivo que permite:</p>
+								<ul>
+									<li><strong>KPIs Principales:</strong> Total de facturas procesadas, importe total, gasto promedio por factura</li>
+									<li><strong>Análisis Temporal:</strong> Evolución del gasto mes a mes con gráficos de líneas</li>
+									<li><strong>Análisis por Proveedor:</strong> Top proveedores por importe, distribución de gastos</li>
+									<li><strong>Análisis por Concepto:</strong> Clasificación de gastos por tipo de servicio/producto</li>
+									<li><strong>Filtros Interactivos:</strong> Por fecha, proveedor, rango de importes, moneda</li>
+								</ul>
+
+								<h3>Métricas del Proyecto</h3>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Métrica</th>
+												<th>Resultado</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Tiempo de procesamiento</td>
+												<td>~3-5 segundos por factura</td>
+											</tr>
+											<tr>
+												<td>Precisión de extracción</td>
+												<td>95%+ con GPT-4</td>
+											</tr>
+											<tr>
+												<td>Reducción de tiempo manual</td>
+												<td>80-90% vs. entrada manual</td>
+											</tr>
+											<tr>
+												<td>Formatos soportados</td>
+												<td>PDF (facturas estructuradas y semi-estructuradas)</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<h2>💡 Aprendizajes Clave</h2>
+								<ul>
+									<li><strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos para que GPT-4 extraiga datos de manera consistente y estructurada</li>
+									<li><strong>Manejo de Errores:</strong> Implementar validaciones para facturas con formatos no estándar o texto ilegible</li>
+									<li><strong>Optimización de Costos:</strong> Usar GPT-4-mini para reducir costos de API manteniendo alta precisión</li>
+									<li><strong>Integración de Tecnologías:</strong> Conectar Python → SQLite → Power BI en un flujo automatizado</li>
+									<li><strong>Seguridad:</strong> Proteger API keys y datos sensibles usando .env y .gitignore</li>
+								</ul>
+
+								<h2>🔗 Enlaces del Proyecto</h2>
+								<ul class="actions special">
+									<li><a href="https://github.com/silvanopuccini/SilvanoPucciniTheAnalyst.github.io/tree/main/proyectos/FacturIA" class="button large primary">Ver Código en GitHub</a></li>
+									<li><a href="../proyectos/FacturIA/README.md" class="button large">Documentación Técnica</a></li>
+								</ul>
+
+								<hr />
+
+								<h2>📧 ¿Interesado en este proyecto?</h2>
+								<p>Si quieres saber más sobre cómo implementé este sistema o discutir colaboraciones, no dudes en contactarme:</p>
+								<ul>
+									<li><strong>Email:</strong> <a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></li>
+									<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Silvano-Puccini">linkedin.com/in/Silvano-Puccini</a></li>
+								</ul>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Redes Sociales</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Silvano Puccini</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
