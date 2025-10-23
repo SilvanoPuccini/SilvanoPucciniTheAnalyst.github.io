@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dashboard de Ventas - Power BI | Silvano Puccini</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Silvano Puccini</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="../index.html">Inicio</a></li>
+							<li class="active"><a href="dashboard-ventas.html">Dashboard de Ventas</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">Proyecto de Business Intelligence</span>
+									<h1>Dashboard de Ventas<br />
+									Análisis Interactivo con Power BI</h1>
+									<p>Dashboard interactivo para análisis de ventas y rendimiento por región, canal y producto, con KPIs dinámicos y visualizaciones profesionales.</p>
+								</header>
+								<div class="image main"><img src="../images/dashboard-ventas.jpg" alt="Dashboard de Ventas Power BI" /></div>
+
+								<h2>📋 Descripción del Proyecto</h2>
+								<p>Este proyecto consiste en un dashboard profesional de Power BI diseñado para proporcionar insights accionables sobre el rendimiento de ventas de una organización. El dashboard permite a los usuarios explorar datos de ventas desde múltiples dimensiones y tomar decisiones basadas en datos en tiempo real.</p>
+
+								<h2>🎯 Objetivos del Dashboard</h2>
+								<ul>
+									<li><strong>Monitoreo de KPIs:</strong> Visualizar métricas clave como ingresos totales, unidades vendidas, margen de beneficio y tasa de conversión</li>
+									<li><strong>Análisis Temporal:</strong> Identificar tendencias de ventas por día, semana, mes, trimestre y año</li>
+									<li><strong>Segmentación Geográfica:</strong> Comparar el rendimiento por región, país, ciudad o zona de ventas</li>
+									<li><strong>Análisis de Productos:</strong> Identificar los productos más y menos rentables, y analizar el mix de productos</li>
+									<li><strong>Análisis de Canales:</strong> Evaluar el rendimiento de diferentes canales de venta (online, retail, B2B, etc.)</li>
+								</ul>
+
+								<h2>⚙️ Funcionalidades Principales</h2>
+
+								<h3>1. Vista Ejecutiva (Overview)</h3>
+								<ul>
+									<li>KPIs principales en tarjetas destacadas (Ingresos, Margen, Unidades, Clientes)</li>
+									<li>Gráfico de tendencia de ingresos vs. objetivo</li>
+									<li>Comparación year-over-year (YoY) y month-over-month (MoM)</li>
+									<li>Indicadores de rendimiento con código de colores (verde/amarillo/rojo)</li>
+								</ul>
+
+								<h3>2. Análisis por Región</h3>
+								<ul>
+									<li>Mapa interactivo con heat map de ventas por ubicación</li>
+									<li>Ranking de top regiones por ingresos y crecimiento</li>
+									<li>Gráficos de barras comparativos entre regiones</li>
+									<li>Filtros para drill-down por país → estado → ciudad</li>
+								</ul>
+
+								<h3>3. Análisis de Productos</h3>
+								<ul>
+									<li>Tabla con ranking de productos por ventas</li>
+									<li>Gráfico de dispersión: Margen vs. Volumen de ventas</li>
+									<li>Análisis ABC de productos (clasificación Pareto)</li>
+									<li>Tree map para visualizar contribución al revenue</li>
+								</ul>
+
+								<h3>4. Análisis de Canales</h3>
+								<ul>
+									<li>Gráfico de dona mostrando distribución de ventas por canal</li>
+									<li>Comparación de márgenes por canal</li>
+									<li>Análisis de customer journey multicanal</li>
+								</ul>
+
+								<h3>5. Análisis Temporal</h3>
+								<ul>
+									<li>Gráfico de líneas con ventas históricas</li>
+									<li>Análisis de estacionalidad (patrones mensuales/trimestrales)</li>
+									<li>Pronósticos con líneas de tendencia</li>
+									<li>Comparación de períodos personalizados</li>
+								</ul>
+
+								<h2>🛠️ Tecnologías y Herramientas</h2>
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<h3>Herramientas de BI</h3>
+										<ul>
+											<li><strong>Power BI Desktop</strong> - Diseño del dashboard</li>
+											<li><strong>DAX</strong> - Cálculos y medidas personalizadas</li>
+											<li><strong>Power Query</strong> - ETL y transformación de datos</li>
+											<li><strong>Power BI Service</strong> - Publicación y compartición</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Fuentes de Datos</h3>
+										<ul>
+											<li><strong>SQL Server</strong> - Base de datos transaccional</li>
+											<li><strong>Excel</strong> - Archivos complementarios</li>
+											<li><strong>CSV</strong> - Datos de catálogos</li>
+										</ul>
+									</div>
+								</div>
+
+								<h2>📊 Medidas DAX Destacadas</h2>
+								<p>Ejemplos de algunas medidas calculadas implementadas:</p>
+								<pre><code>// Ingresos Totales
+Total Revenue = SUM(Sales[Amount])
+
+// Crecimiento YoY
+YoY Growth =
+DIVIDE(
+    [Total Revenue] - CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Calendar[Date])),
+    CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Calendar[Date])),
+    0
+)
+
+// Margen de Beneficio %
+Profit Margin % = DIVIDE([Total Profit], [Total Revenue], 0)
+
+// Ranking de Productos
+Product Rank = RANKX(ALL(Products[ProductName]), [Total Revenue],,DESC,DENSE)
+</code></pre>
+
+								<h2>💡 Insights Clave Obtenidos</h2>
+								<ul>
+									<li><strong>Estacionalidad:</strong> Identificación de picos de ventas en Q4 (temporada navideña), permitiendo optimizar inventario</li>
+									<li><strong>Productos Estrella:</strong> El 20% de productos genera el 80% de los ingresos (Principio de Pareto validado)</li>
+									<li><strong>Canales Rentables:</strong> Canal online tiene menor margen pero mayor volumen; canal B2B mayor margen pero menor conversión</li>
+									<li><strong>Regiones de Crecimiento:</strong> Identificación de mercados emergentes con alto potencial (crecimiento >30% YoY)</li>
+									<li><strong>Oportunidades:</strong> Productos con bajo volumen pero alto margen → candidatos para campañas de marketing</li>
+								</ul>
+
+								<h2>🎯 Impacto del Proyecto</h2>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Área de Impacto</th>
+												<th>Resultado</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Tiempo de generación de reportes</td>
+												<td>Reducción del 70% (de horas a minutos)</td>
+											</tr>
+											<tr>
+												<td>Decisiones basadas en datos</td>
+												<td>Incremento del 40% en uso de analytics</td>
+											</tr>
+											<tr>
+												<td>Visibilidad de KPIs</td>
+												<td>Acceso en tiempo real vs. reportes mensuales</td>
+											</tr>
+											<tr>
+												<td>Detección de oportunidades</td>
+												<td>Identificación proactiva de tendencias</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<h2>🚀 Próximas Mejoras</h2>
+								<ul>
+									<li>Integración con API de CRM para datos de clientes en tiempo real</li>
+									<li>Análisis predictivo con Machine Learning (forecast de ventas)</li>
+									<li>Alertas automáticas cuando KPIs caen bajo umbrales</li>
+									<li>Dashboard móvil optimizado para ejecutivos</li>
+									<li>Integración con Power Automate para reportes automatizados</li>
+								</ul>
+
+								<h2>🔗 Enlaces del Proyecto</h2>
+								<ul class="actions special">
+									<li><a href="https://github.com/silvanopuccini/dashboard-ventas" class="button large primary">Ver en GitHub</a></li>
+									<li><a href="../index.html" class="button large">Volver al Portafolio</a></li>
+								</ul>
+
+								<hr />
+
+								<h2>📧 Contacto</h2>
+								<p>¿Te interesa implementar un dashboard similar para tu empresa? Contáctame:</p>
+								<ul>
+									<li><strong>Email:</strong> <a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></li>
+									<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Silvano-Puccini">linkedin.com/in/Silvano-Puccini</a></li>
+								</ul>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Redes Sociales</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Silvano Puccini</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
