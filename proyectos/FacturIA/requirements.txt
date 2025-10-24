@@ -1,0 +1,5 @@
+pandas
+pymupdf
+google-generativeai
+sqlalchemy
+python-dotenv
