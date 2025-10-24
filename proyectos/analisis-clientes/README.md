@@ -4,6 +4,38 @@
 
 Proyecto de análisis de asociación de productos utilizando técnicas de **Market Basket Analysis** sobre un dataset real de 4.9 millones de transacciones del supermercado "SanoYFresco". El objetivo es descubrir patrones de compra y reglas de asociación para optimizar la disposición de productos, estrategias de cross-selling y campañas de marketing.
 
+## 🚀 Instalación y Ejecución
+
+### Requisitos Previos
+- Python 3.8+
+- Jupyter Notebook o JupyterLab
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/SilvanoPuccini/Market-Basket-Analysis.git
+cd Market-Basket-Analysis
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### Ejecución
+
+**Opción 1: Jupyter Notebook (Local)**
+```bash
+jupyter notebook TPE_MarketBasketAnalysis_colab.ipynb
+```
+
+**Opción 2: Google Colab (Online)**
+1. Abre el notebook en [Google Colab](https://colab.research.google.com)
+2. Sube el archivo `TPE_MarketBasketAnalysis_colab.ipynb`
+3. Sube la base de datos `sanoyfresco.db` (si la tienes)
+4. Ejecuta las celdas secuencialmente
+
+**Nota:** Si no tienes la base de datos `sanoyfresco.db`, el notebook incluye el dataset completo de 4.9M registros embebido.
+
 ## 🎯 Objetivo
 
 Identificar qué productos se compran frecuentemente juntos para:

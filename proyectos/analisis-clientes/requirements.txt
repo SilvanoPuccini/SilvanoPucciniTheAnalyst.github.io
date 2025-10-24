@@ -1,0 +1,5 @@
+pandas>=2.0.0
+sqlite3
+jupyter
+matplotlib
+seaborn
