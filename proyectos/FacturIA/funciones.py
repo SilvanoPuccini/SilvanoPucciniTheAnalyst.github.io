@@ -1,4 +1,4 @@
-import openai
+import google.generativeai as genai
 import fitz  # PyMuPDF
 from dotenv import load_dotenv
 import os
@@ -9,8 +9,11 @@ from prompt import prompt
 # Cargar variables de entorno desde el archivo .env
 load_dotenv(".env")
 
-# Obtener la clave de API de OpenAI desde las variables de entorno
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# Obtener la clave de API de Google Gemini desde las variables de entorno
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# Configurar Google Gemini
+genai.configure(api_key=GEMINI_API_KEY)
 
 
 def extraer_texto_pdf(ruta_pdf):
@@ -21,40 +24,43 @@ def extraer_texto_pdf(ruta_pdf):
 
 
 def estructurar_texto(texto):
-    """Envía el texto a OpenAI y obtiene la respuesta estructurada en CSV,
+    """Envía el texto a Google Gemini y obtiene la respuesta estructurada en CSV,
     asegurando que solo devuelva datos válidos o 'error' en caso de problema."""
 
-    cliente = openai.OpenAI(api_key=OPENAI_API_KEY)
+    try:
+        # Crear el modelo Gemini
+        model = genai.GenerativeModel('gemini-1.5-flash')
 
-    respuesta = cliente.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {
-                "role": "system",
-                "content": "Eres un experto en extracción de datos de facturas. Devuelve solo el CSV sin explicaciones ni mensajes adicionales. Si no puedes extraer datos, devuelve exactamente la palabra 'error' sin comillas.",
-            },
-            {
-                "role": "user",
-                "content": prompt + "\n Este es el texto a parsear:\n" + texto,
-            },
-        ],
-    )
+        # Crear el mensaje completo
+        mensaje_completo = f"""Eres un experto en extracción de datos de facturas. Devuelve solo el CSV sin explicaciones ni mensajes adicionales. Si no puedes extraer datos, devuelve exactamente la palabra 'error' sin comillas.
 
-    csv_respuesta = respuesta.choices[0].message.content.strip()
-    return csv_respuesta
+{prompt}
+
+Este es el texto a parsear:
+{texto}"""
+
+        # Generar respuesta
+        respuesta = model.generate_content(mensaje_completo)
+
+        csv_respuesta = respuesta.text.strip()
+        return csv_respuesta
+
+    except Exception as e:
+        print(f"⚠️  Error al comunicarse con Google Gemini: {e}")
+        return "error"
 
 
 def csv_a_dataframe(csv):
     """Convierte el texto CSV en un DataFrame de pandas, asegurando que 'importe' sea numérico."""
 
-    # Mostrar lo que devolvió OpenAI para debugging
-    print("📋 Respuesta de OpenAI:")
+    # Mostrar lo que devolvió la IA para debugging
+    print("📋 Respuesta de Google Gemini:")
     print(csv)
     print("=" * 50)
 
-    # Verificar si OpenAI devolvió error
+    # Verificar si la IA devolvió error
     if csv.lower().strip() == "error":
-        print("⚠️  OpenAI no pudo procesar esta factura. Saltando...")
+        print("⚠️  Google Gemini no pudo procesar esta factura. Saltando...")
         return pd.DataFrame()  # Retornar DataFrame vacío
 
     # Definir los tipos de datos para cada columna
