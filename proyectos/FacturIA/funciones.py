@@ -28,8 +28,8 @@ def estructurar_texto(texto):
     asegurando que solo devuelva datos válidos o 'error' en caso de problema."""
 
     try:
-        # Crear el modelo Gemini
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        # Crear el modelo Gemini (gemini-pro es el modelo gratuito estable)
+        model = genai.GenerativeModel('gemini-pro')
 
         # Crear el mensaje completo
         mensaje_completo = f"""Eres un experto en extracción de datos de facturas. Devuelve solo el CSV sin explicaciones ni mensajes adicionales. Si no puedes extraer datos, devuelve exactamente la palabra 'error' sin comillas.
