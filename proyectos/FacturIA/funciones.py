@@ -47,6 +47,16 @@ def estructurar_texto(texto):
 def csv_a_dataframe(csv):
     """Convierte el texto CSV en un DataFrame de pandas, asegurando que 'importe' sea numérico."""
 
+    # Mostrar lo que devolvió OpenAI para debugging
+    print("📋 Respuesta de OpenAI:")
+    print(csv)
+    print("=" * 50)
+
+    # Verificar si OpenAI devolvió error
+    if csv.lower().strip() == "error":
+        print("⚠️  OpenAI no pudo procesar esta factura. Saltando...")
+        return pd.DataFrame()  # Retornar DataFrame vacío
+
     # Definir los tipos de datos para cada columna
     dtype_cols = {
         "fecha_factura": str,
@@ -56,12 +66,27 @@ def csv_a_dataframe(csv):
         "moneda": str,
     }
 
-    # Leer el CSV en un DataFrame con los tipos especificados
-    df_temp = pd.read_csv(StringIO(csv), delimiter=";", dtype=dtype_cols)
+    try:
+        # Leer el CSV en un DataFrame con los tipos especificados
+        df_temp = pd.read_csv(StringIO(csv), delimiter=";", dtype=dtype_cols)
 
-    # Convertir 'importe' a float, asegurando que los valores con coma se conviertan correctamente
-    df_temp["importe"] = pd.to_numeric(
-        df_temp["importe"].str.replace(",", "."), errors="coerce"
-    )
+        # Verificar que existan las columnas esperadas
+        columnas_requeridas = ["fecha_factura", "proveedor", "concepto", "importe", "moneda"]
+        columnas_faltantes = [col for col in columnas_requeridas if col not in df_temp.columns]
 
-    return df_temp
+        if columnas_faltantes:
+            print(f"❌ Error: Faltan columnas en el CSV: {columnas_faltantes}")
+            print(f"   Columnas encontradas: {list(df_temp.columns)}")
+            return pd.DataFrame()  # Retornar DataFrame vacío
+
+        # Convertir 'importe' a float, asegurando que los valores con coma se conviertan correctamente
+        df_temp["importe"] = pd.to_numeric(
+            df_temp["importe"].str.replace(",", "."), errors="coerce"
+        )
+
+        return df_temp
+
+    except Exception as e:
+        print(f"❌ Error al procesar CSV: {e}")
+        print(f"   Contenido recibido: {csv}")
+        return pd.DataFrame()  # Retornar DataFrame vacío
