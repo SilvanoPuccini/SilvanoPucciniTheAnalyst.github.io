@@ -25,24 +25,41 @@ for carpeta in sorted(os.listdir("./facturas")):
         # Convertir texto estructurado en dataframe
         df_factura = funciones.csv_a_dataframe(texto_estructurado)
 
-        # Anexar el dataframe de la factura al dataframe general
-        df = pd.concat([df, df_factura], ignore_index=True)
+        # Solo anexar si el dataframe no está vacío
+        if not df_factura.empty:
+            # Anexar el dataframe de la factura al dataframe general
+            df = pd.concat([df, df_factura], ignore_index=True)
+            print("✅ Factura procesada correctamente\n")
+        else:
+            print("⚠️  Factura omitida (no se pudo procesar)\n")
 
     # Si la moneda es "dolares" convertir a euros multiplicando por 0,9243
-    df.loc[df["moneda"] == "dolares", "importe"] *= 0.9243
+    if not df.empty and "moneda" in df.columns:
+        df.loc[df["moneda"] == "dolares", "importe"] *= 0.9243
 
     # Eliminar las columnas no esenciales
-    df = df.iloc[:, 0:4]
+    if not df.empty:
+        df = df.iloc[:, 0:4]
 
-# Guardar el DataFrame final en una bbdd sqlite
-# Crear una conexión a la base de datos SQLite
-engine = create_engine("sqlite:///facturas.db")
+# Verificar si hay datos para guardar
+if df.empty:
+    print("\n⚠️  No se procesaron facturas exitosamente. No hay datos para guardar.")
+    print("Revisa que:")
+    print("  1. Los PDFs contengan texto legible (no solo imágenes)")
+    print("  2. Tu API key de Google Gemini esté configurada correctamente en el archivo .env")
+    print("  3. Tu API key de Google Gemini sea válida")
+else:
+    # Guardar el DataFrame final en una bbdd sqlite
+    # Crear una conexión a la base de datos SQLite
+    engine = create_engine("sqlite:///facturas.db")
 
-# Guardar el DataFrame final en una bbdd sqlite, añadiendo los datos en lugar de reemplazarlos
-df.to_sql("facturas", engine, if_exists="append", index=False)
+    # Guardar el DataFrame final en una bbdd sqlite, añadiendo los datos en lugar de reemplazarlos
+    df.to_sql("facturas", engine, if_exists="append", index=False)
 
-# Cerrar la conexión a la base de datos
-engine.dispose()
+    # Cerrar la conexión a la base de datos
+    engine.dispose()
 
-print("Proceso de extracción y estructuración de facturas completado exitosamente.")
-print("Datos guardados en la base de datos 'facturas.db'.")
+    print("\n" + "="*60)
+    print("✅ Proceso de extracción y estructuración de facturas completado exitosamente.")
+    print(f"✅ {len(df)} factura(s) guardada(s) en la base de datos 'facturas.db'.")
+    print("="*60)
