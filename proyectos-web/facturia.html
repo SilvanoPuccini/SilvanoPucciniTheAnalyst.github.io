@@ -40,10 +40,10 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">Proyecto de Análisis de Datos</span>
+									<span class="date">Proyecto de Análisis de Datos con IA</span>
 									<h1>FacturIA<br />
 									Sistema de Automatización de Facturas con IA</h1>
-									<p>Sistema automatizado para procesar facturas en PDF, extraer información con Inteligencia Artificial (OpenAI GPT-4), almacenar datos en SQLite y visualizarlos en Power BI.</p>
+									<p>Sistema automatizado 100% gratuito para procesar facturas en PDF (texto e imágenes), extraer información con Google Gemini Vision, almacenar datos en SQLite y visualizarlos en Power BI. Compatible con fotos de WhatsApp y facturas escaneadas.</p>
 								</header>
 								<div class="image main"><img src="../images/facturia-portada.png" alt="FacturIA Dashboard" /></div>
 
@@ -61,15 +61,21 @@
 
 								<h2>⚙️ Cómo Funciona (Flujo de Trabajo)</h2>
 								<ol>
-									<li><strong>Ingesta de Datos:</strong> El sistema recorre carpetas organizadas con facturas en PDF (por ejemplo: enero/, febrero/, etc.)</li>
-									<li><strong>Extracción de Texto:</strong> Utiliza PyMuPDF para extraer el texto completo de cada factura</li>
-									<li><strong>Procesamiento con IA:</strong> Envía el texto a OpenAI GPT-4 con un prompt optimizado que instruye al modelo a extraer:
+									<li><strong>Ingesta de Datos:</strong> El sistema recorre carpetas organizadas con facturas en PDF (acepta PDFs con texto, escaneados, fotos de WhatsApp)</li>
+									<li><strong>Detección Inteligente:</strong> Analiza automáticamente si el PDF contiene texto extraíble o es una imagen</li>
+									<li><strong>Extracción Dual:</strong>
+										<ul>
+											<li><strong>PDFs con texto:</strong> Extrae con PyMuPDF y envía a Google Gemini</li>
+											<li><strong>PDFs con imagen:</strong> Convierte a imagen y usa Google Gemini Vision (IA multimodal que "ve" la factura)</li>
+										</ul>
+									</li>
+									<li><strong>Procesamiento con IA:</strong> Google Gemini Vision analiza la factura y extrae:
 										<ul>
 											<li>Fecha de emisión (formato dd/mm/aaaa)</li>
 											<li>Nombre del proveedor</li>
 											<li>Concepto o descripción del servicio/producto</li>
 											<li>Importe total</li>
-											<li>Moneda (EUR, USD, u otros)</li>
+											<li>Moneda (EUR, USD, pesos, u otros)</li>
 										</ul>
 									</li>
 									<li><strong>Estructuración:</strong> La IA devuelve los datos en formato CSV estructurado</li>
@@ -85,8 +91,9 @@
 										<ul>
 											<li><strong>Python 3.x</strong> - Lenguaje principal</li>
 											<li><strong>Pandas</strong> - Manipulación de datos</li>
-											<li><strong>PyMuPDF (fitz)</strong> - Extracción de texto de PDFs</li>
-											<li><strong>OpenAI API</strong> - Procesamiento con GPT-4</li>
+											<li><strong>PyMuPDF (fitz)</strong> - Extracción de PDFs</li>
+											<li><strong>Google Gemini Vision API</strong> - IA multimodal (texto + imágenes) 🆓</li>
+											<li><strong>Pillow (PIL)</strong> - Procesamiento de imágenes</li>
 											<li><strong>SQLAlchemy</strong> - ORM para base de datos</li>
 											<li><strong>python-dotenv</strong> - Gestión de variables de entorno</li>
 										</ul>
@@ -97,6 +104,11 @@
 											<li><strong>SQLite</strong> - Base de datos ligera</li>
 											<li><strong>Power BI</strong> - Dashboards interactivos</li>
 											<li><strong>ODBC</strong> - Conexión Power BI ↔ SQLite</li>
+										</ul>
+										<h3 style="margin-top: 20px;">Ventajas</h3>
+										<ul>
+											<li><strong>100% Gratuito</strong> - Usa Google Gemini API sin costos</li>
+											<li><strong>Sin OCR adicional</strong> - Gemini Vision lee imágenes directamente</li>
 										</ul>
 									</div>
 								</div>
@@ -128,7 +140,7 @@
 											</tr>
 											<tr>
 												<td>Precisión de extracción</td>
-												<td>95%+ con GPT-4</td>
+												<td>95%+ con Google Gemini Vision</td>
 											</tr>
 											<tr>
 												<td>Reducción de tiempo manual</td>
@@ -136,7 +148,7 @@
 											</tr>
 											<tr>
 												<td>Formatos soportados</td>
-												<td>PDF (facturas estructuradas y semi-estructuradas)</td>
+												<td>PDFs con texto, escaneados, fotos de WhatsApp, capturas de pantalla</td>
 											</tr>
 										</tbody>
 									</table>
@@ -144,17 +156,20 @@
 
 								<h2>💡 Aprendizajes Clave</h2>
 								<ul>
-									<li><strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos para que GPT-4 extraiga datos de manera consistente y estructurada</li>
-									<li><strong>Manejo de Errores:</strong> Implementar validaciones para facturas con formatos no estándar o texto ilegible</li>
-									<li><strong>Optimización de Costos:</strong> Usar GPT-4-mini para reducir costos de API manteniendo alta precisión</li>
-									<li><strong>Integración de Tecnologías:</strong> Conectar Python → SQLite → Power BI en un flujo automatizado</li>
-									<li><strong>Seguridad:</strong> Proteger API keys y datos sensibles usando .env y .gitignore</li>
+									<li><strong>IA Multimodal:</strong> Implementar Google Gemini Vision para procesar tanto texto como imágenes en un mismo flujo, permitiendo leer facturas escaneadas y fotografías sin OCR adicional</li>
+									<li><strong>Detección Inteligente:</strong> Desarrollar lógica para identificar automáticamente si un PDF contiene texto extraíble o imágenes, aplicando el método de procesamiento apropiado para cada caso</li>
+									<li><strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos para que la IA extraiga datos estructurados de manera consistente, tanto de texto como de imágenes visuales</li>
+									<li><strong>Procesamiento de Imágenes:</strong> Convertir PDFs a imágenes de alta calidad (2x zoom) usando PyMuPDF y procesarlas con Pillow para enviarlas a la API de visión</li>
+									<li><strong>APIs Gratuitas:</strong> Aprovechar Google Gemini API (100% gratuita) como alternativa viable a servicios pagos, manteniendo alta precisión en la extracción de datos</li>
+									<li><strong>Manejo de Errores Robusto:</strong> Implementar validaciones exhaustivas para facturas con formatos no estándar, imágenes borrosas o datos incompletos, evitando que el sistema se detenga</li>
+									<li><strong>Integración de Tecnologías:</strong> Conectar Python → Google Gemini Vision → SQLite → Power BI en un flujo automatizado end-to-end</li>
+									<li><strong>Seguridad de Datos:</strong> Proteger API keys y datos sensibles usando .env y .gitignore, asegurando que información confidencial nunca se suba al repositorio</li>
 								</ul>
 
 								<h2>🔗 Enlaces del Proyecto</h2>
 								<ul class="actions special">
-									<li><a href="https://github.com/silvanopuccini/SilvanoPucciniTheAnalyst.github.io/tree/main/proyectos/FacturIA" class="button large primary">Ver Código en GitHub</a></li>
-									<li><a href="../proyectos/FacturIA/README.md" class="button large">Documentación Técnica</a></li>
+									<li><a href="https://github.com/SilvanoPuccini/FacturIA" class="button large primary">Ver Código en GitHub</a></li>
+									<li><a href="https://github.com/SilvanoPuccini/FacturIA#readme" class="button large">Documentación Técnica</a></li>
 								</ul>
 
 								<hr />
