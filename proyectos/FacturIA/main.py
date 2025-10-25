@@ -46,8 +46,8 @@ if df.empty:
     print("\n⚠️  No se procesaron facturas exitosamente. No hay datos para guardar.")
     print("Revisa que:")
     print("  1. Los PDFs contengan texto legible (no solo imágenes)")
-    print("  2. Tu API key de OpenAI esté configurada correctamente en el archivo .env")
-    print("  3. Tengas créditos disponibles en tu cuenta de OpenAI")
+    print("  2. Tu API key de Google Gemini esté configurada correctamente en el archivo .env")
+    print("  3. Tu API key de Google Gemini sea válida")
 else:
     # Guardar el DataFrame final en una bbdd sqlite
     # Crear una conexión a la base de datos SQLite
