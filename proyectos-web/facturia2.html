@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>FacturIA 2.0 - Sistema Inteligente de Gestión Financiera | Silvano Puccini</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Silvano Puccini</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="../index.html">Inicio</a></li>
+							<li class="active"><a href="facturia2.html">FacturIA 2.0</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">Proyecto Full Stack con IA - 2025</span>
+									<h1>FacturIA 2.0<br />
+									Sistema Inteligente de Gestión Financiera</h1>
+									<p>Sistema automatizado completo de procesamiento, clasificación y análisis de transacciones financieras mediante <strong>Inteligencia Artificial</strong>. Automatiza todo el ciclo: desde la recepción de comprobantes por email hasta la generación de reportes ejecutivos con visualizaciones interactivas en tiempo real.</p>
+								</header>
+								<div class="image main"><img src="../images/facturia2.jpg" alt="FacturIA 2.0 - Dashboard Interactivo" /></div>
+
+								<h2>🎯 Descripción del Proyecto</h2>
+								<p>FacturIA 2.0 es un sistema <strong>end-to-end</strong> que revoluciona la gestión contable empresarial mediante la automatización completa del proceso de análisis financiero. A diferencia de su versión anterior que solo procesaba PDFs manualmente, esta segunda versión implementa un <strong>ecosistema completo</strong> con monitor de email 24/7, clasificación automática con IA, base de datos robusta y dashboard web interactivo.</p>
+
+								<p><strong>Evolución desde FacturIA 1.0:</strong></p>
+								<ul>
+									<li><strong>Monitor automático de email</strong> con Gmail IMAP que revisa constantemente tu casilla</li>
+									<li><strong>Detección automática de personas</strong> a partir del remitente del email</li>
+									<li><strong>Google Gemini 2.0 Flash</strong> (última versión) con optimización para free tier (15 RPM)</li>
+									<li><strong>Dashboard web interactivo</strong> con Streamlit (multi-página con 4 secciones especializadas)</li>
+									<li><strong>Base de datos SQLAlchemy</strong> con soporte SQLite/PostgreSQL</li>
+									<li><strong>Sistema de notificaciones</strong> por email con resúmenes HTML profesionales</li>
+									<li><strong>Exportaciones avanzadas</strong> a Excel y PDF con formato profesional</li>
+									<li><strong>Rate limiting inteligente</strong> y circuit breaker para evitar costos en APIs</li>
+									<li><strong>Manejo robusto de UTF-8</strong> para caracteres especiales del español</li>
+								</ul>
+
+								<h2>🚀 Problema que Resuelve</h2>
+								<p>Las pequeñas empresas y freelancers enfrentan un desafío crítico: <strong>gestionar manualmente decenas de comprobantes</strong> que llegan por email cada mes. Este proceso consume horas valiosas, es propenso a errores humanos y dificulta la toma de decisiones financieras oportunas.</p>
+
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Proceso Manual (Antes)</th>
+												<th>Con FacturIA 2.0 (Ahora)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Revisar emails manualmente buscando facturas</td>
+												<td><strong>Monitor automático</strong> revisa cada 5 minutos</td>
+											</tr>
+											<tr>
+												<td>Descargar adjuntos uno por uno</td>
+												<td><strong>Descarga automática</strong> de PDFs, PNGs y JPGs</td>
+											</tr>
+											<tr>
+												<td>Abrir cada PDF y copiar datos a Excel</td>
+												<td><strong>Gemini AI extrae</strong> monto, fecha, categoría automáticamente</td>
+											</tr>
+											<tr>
+												<td>Clasificar manualmente: ingreso o egreso</td>
+												<td><strong>IA clasifica</strong> con 95%+ de precisión</td>
+											</tr>
+											<tr>
+												<td>Crear gráficos y reportes en Excel/PowerPoint</td>
+												<td><strong>Dashboard interactivo</strong> con visualizaciones en tiempo real</td>
+											</tr>
+											<tr>
+												<td><strong>Tiempo invertido:</strong> 3-5 horas por semana</td>
+												<td><strong>Tiempo invertido:</strong> 5 minutos (solo revisión de excepciones)</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<h2>⚙️ Arquitectura del Sistema</h2>
+								<p>FacturIA 2.0 implementa una <strong>arquitectura modular</strong> con 5 componentes principales que trabajan de manera coordinada:</p>
+
+								<h3>1. Monitor de Email (email_monitor/)</h3>
+								<ul>
+									<li><strong>Conexión IMAP persistente</strong> con Gmail</li>
+									<li>Busca emails con adjuntos cada 5 minutos (configurable)</li>
+									<li>Filtra por palabras clave: "factura", "comprobante", "recibo"</li>
+									<li>Descarga PDFs, PNGs y JPGs automáticamente</li>
+									<li>Evita duplicados mediante tracking de Message-ID</li>
+									<li><strong>Extracción inteligente de personas:</strong> detecta el remitente desde el email</li>
+								</ul>
+
+								<h3>2. Procesador con IA (ai_processor/)</h3>
+								<ul>
+									<li><strong>Google Gemini 2.0 Flash</strong> (modelo multimodal más reciente)</li>
+									<li>Analiza PDFs e imágenes de comprobantes</li>
+									<li>Extrae: tipo (ingreso/egreso), categoría, monto, fecha, emisor, número de comprobante</li>
+									<li><strong>Rate limiting inteligente:</strong> respeta límite de 15 RPM del free tier</li>
+									<li><strong>Circuit breaker:</strong> pausa procesamiento si detecta múltiples fallos consecutivos</li>
+									<li><strong>Error recovery:</strong> corrige JSON malformado automáticamente</li>
+									<li><strong>Confianza ajustable:</strong> marca transacciones que requieren revisión manual</li>
+								</ul>
+
+								<h3>3. Base de Datos (database/)</h3>
+								<ul>
+									<li><strong>SQLAlchemy ORM</strong> para abstracción completa de SQL</li>
+									<li>Soporte multi-DB: SQLite (desarrollo) y PostgreSQL (producción)</li>
+									<li>Modelo de datos robusto con 20+ campos:
+										<ul>
+											<li>Información financiera: tipo, categoría, monto, fecha</li>
+											<li>Metadata: persona, emisor/receptor, descripción</li>
+											<li>Auditoría: fecha de creación, edición manual, última modificación</li>
+											<li>Flags: requiere_revision, editado_manualmente, confianza_ia</li>
+										</ul>
+									</li>
+									<li>CRUD operations completas con validaciones</li>
+									<li>Script de limpieza incluido (limpiar_db.py)</li>
+								</ul>
+
+								<h3>4. Dashboard Interactivo (dashboard/)</h3>
+								<ul>
+									<li><strong>Streamlit Framework</strong> con 4 páginas especializadas:
+										<ol>
+											<li><strong>Principal:</strong> KPIs, gráficos de evolución temporal, distribución por categorías</li>
+											<li><strong>Revisar Transacciones:</strong> edición manual con interfaz intuitiva, búsqueda y filtros avanzados</li>
+											<li><strong>Cargar CSV:</strong> importación masiva con mapeo de columnas y validación</li>
+											<li><strong>Configuración:</strong> estadísticas del sistema y mantenimiento</li>
+										</ol>
+									</li>
+									<li><strong>Visualizaciones con Plotly:</strong> gráficos interactivos 100% responsivos</li>
+									<li><strong>Filtros avanzados:</strong> por fecha, categoría, persona, tipo y origen</li>
+									<li><strong>Exportaciones profesionales:</strong> Excel con formato y PDF con gráficos</li>
+								</ul>
+
+								<h3>5. Sistema de Notificaciones (notifications/)</h3>
+								<ul>
+									<li>Envía emails automáticos cuando se procesan nuevas transacciones</li>
+									<li>HTML estilizado con formato profesional</li>
+									<li>Incluye resumen estadístico y lista detallada de transacciones</li>
+									<li>Soporte multi-destinatario</li>
+								</ul>
+
+								<h2>🛠️ Stack Tecnológico</h2>
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<h3>Backend & IA</h3>
+										<ul>
+											<li><strong>Python 3.10+</strong> - Lenguaje principal</li>
+											<li><strong>Google Gemini 2.0 Flash</strong> - IA multimodal</li>
+											<li><strong>SQLAlchemy 2.0</strong> - ORM</li>
+											<li><strong>Pydantic</strong> - Validación de datos</li>
+											<li><strong>PyPDF2 + Pillow</strong> - Procesamiento de documentos</li>
+											<li><strong>Schedule + Loguru</strong> - Automatización y logging</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Frontend & Visualización</h3>
+										<ul>
+											<li><strong>Streamlit 1.29</strong> - Framework de dashboard</li>
+											<li><strong>Plotly</strong> - Gráficos interactivos</li>
+											<li><strong>Pandas + NumPy</strong> - Análisis de datos</li>
+											<li><strong>openpyxl + ReportLab</strong> - Exportaciones</li>
+										</ul>
+										<h3 style="margin-top: 20px;">Email & Comunicación</h3>
+										<ul>
+											<li><strong>Gmail IMAP</strong> - Monitor de emails</li>
+											<li><strong>smtplib</strong> - Envío de notificaciones</li>
+										</ul>
+									</div>
+								</div>
+
+								<h2>📊 Funcionalidades Destacadas</h2>
+
+								<h3>1. Rate Limiting Inteligente</h3>
+								<p>Optimizado para el <strong>free tier de Google Gemini</strong> (15 requests por minuto):</p>
+								<ul>
+									<li>Espera de 15 segundos entre archivos</li>
+									<li>Exponential backoff en reintentos: 10s → 20s → 30s</li>
+									<li>Circuit breaker: si fallan 10 archivos consecutivos, pausa 5 minutos</li>
+									<li>Logging detallado de cada request para debugging</li>
+								</ul>
+
+								<h3>2. Detección Automática de Personas</h3>
+								<p>Extrae nombres automáticamente desde el email del remitente:</p>
+								<ul>
+									<li><code>silva.puccini@gmail.com</code> → <strong>Silva Puccini</strong></li>
+									<li><code>maria_rodriguez_123@hotmail.com</code> → <strong>Maria Rodriguez</strong></li>
+									<li><code>info@empresa.com</code> → <strong>Empresa</strong> (usa dominio)</li>
+								</ul>
+
+								<h3>3. Manejo Robusto de UTF-8</h3>
+								<p>Procesa correctamente caracteres especiales del español:</p>
+								<ul>
+									<li>Acentos: á, é, í, ó, ú</li>
+									<li>Ñ mayúscula y minúscula</li>
+									<li>Símbolos: ¿, ¡, €, $</li>
+									<li>Función <code>safe_str()</code> en todas las exportaciones</li>
+								</ul>
+
+								<h3>4. Exportaciones Profesionales</h3>
+								<p><strong>Excel (.xlsx):</strong></p>
+								<ul>
+									<li>Encabezados en negrita con fondo azul</li>
+									<li>Formato de moneda con símbolo $</li>
+									<li>Columnas auto-ajustadas</li>
+									<li>Filtros automáticos</li>
+								</ul>
+								<p><strong>PDF:</strong></p>
+								<ul>
+									<li>Header profesional con título</li>
+									<li>Tabla con bordes y colores alternados</li>
+									<li>Pie de página con número de página y fecha</li>
+									<li>Resumen estadístico al final</li>
+								</ul>
+
+								<h2>📈 Resultados y Métricas</h2>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Métrica</th>
+												<th>Resultado</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Líneas de código</td>
+												<td>~5,000 líneas</td>
+											</tr>
+											<tr>
+												<td>Archivos Python</td>
+												<td>15 módulos organizados</td>
+											</tr>
+											<tr>
+												<td>Tiempo de procesamiento</td>
+												<td>~25 segundos por archivo (incluye delays de API)</td>
+											</tr>
+											<tr>
+												<td>Precisión de clasificación</td>
+												<td>95%+ con Gemini 2.0 Flash</td>
+											</tr>
+											<tr>
+												<td>Reducción de tiempo manual</td>
+												<td>90%+ vs. proceso tradicional</td>
+											</tr>
+											<tr>
+												<td>Costo de operación</td>
+												<td>$0 (100% free tier de Gemini)</td>
+											</tr>
+											<tr>
+												<td>Formatos soportados</td>
+												<td>PDF (texto e imagen), PNG, JPG, CSV</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<h2>💡 Desafíos Técnicos Resueltos</h2>
+								<ol>
+									<li><strong>Rate Limiting de APIs Gratuitas:</strong> Implementé un rate limiter inteligente con exponential backoff y circuit breaker para respetar el límite de 15 RPM de Gemini sin perder procesamiento.</li>
+
+									<li><strong>JSON Parsing con Errores:</strong> Gemini 2.0 a veces devuelve JSON con doble llaves <code>{{ }}</code>. Creé un sistema de detección y corrección automática que normaliza la respuesta antes de parsear.</li>
+
+									<li><strong>UTF-8 Encoding en Español:</strong> Los caracteres especiales (á, é, í, ó, ú, ñ) causaban errores en exportaciones. Implementé la función <code>safe_str()</code> y declaraciones de encoding en todos los módulos.</li>
+
+									<li><strong>Persistencia de Cambios en Streamlit:</strong> Los botones "Guardar" no persistían cambios porque <code>st.rerun()</code> terminaba el script antes del auto-commit. Solución: agregar <code>session.commit()</code> explícito antes de rerun.</li>
+
+									<li><strong>Detección de Usuarios Duplicados:</strong> El sistema creaba múltiples usuarios para la misma persona por variaciones en el campo From del email. Implementé regex para extraer solo el email limpio desde "Nombre &lt;email&gt;".</li>
+
+									<li><strong>Cambio de Modelo de Gemini:</strong> El modelo original (gemini-1.5-flash-8b) se deprecó. Migré a gemini-2.0-flash-exp ajustando delays y prompts para mantener precisión.</li>
+								</ol>
+
+								<h2>🎓 Aprendizajes Clave</h2>
+								<ul>
+									<li><strong>Arquitectura Modular:</strong> Diseñar sistemas con separación de responsabilidades (SoC) facilita el mantenimiento y escalabilidad.</li>
+									<li><strong>IA en Producción:</strong> Implementar rate limiting, error recovery y circuit breakers es esencial para sistemas que dependen de APIs externas.</li>
+									<li><strong>Full Stack Development:</strong> Integrar backend (Python), IA (Gemini), base de datos (SQLAlchemy) y frontend (Streamlit) en un flujo end-to-end.</li>
+									<li><strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos para extraer datos estructurados de manera consistente de documentos no estructurados.</li>
+									<li><strong>Testing en Producción:</strong> Los usuarios reales encuentran edge cases que los tests unitarios no cubren. Implementar logging exhaustivo es crucial.</li>
+									<li><strong>Optimización de Costos:</strong> Aprovechar free tiers de APIs (Gemini) con estrategias inteligentes de rate limiting puede resultar en sistemas $0 costo de operación.</li>
+								</ul>
+
+								<h2>🔗 Enlaces del Proyecto</h2>
+								<ul class="actions special">
+									<li><a href="https://github.com/SilvanoPuccini/FacturIA-2.0" class="button large primary icon brands fa-github">Ver Proyecto en GitHub</a></li>
+								</ul>
+
+								<hr />
+
+								<h2>📧 ¿Te interesa este proyecto?</h2>
+								<p>Si querés saber más sobre cómo implementé este sistema, discutir arquitectura o explorar colaboraciones, no dudes en contactarme:</p>
+								<ul>
+									<li><strong>Email:</strong> <a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></li>
+									<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Silvano-Puccini">linkedin.com/in/Silvano-Puccini</a></li>
+									<li><strong>GitHub:</strong> <a href="https://github.com/silvanopuccini">github.com/silvanopuccini</a></li>
+								</ul>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Redes Sociales</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Silvano Puccini</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

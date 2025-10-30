@@ -1,222 +1,403 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>FacturIA - Sistema de Automatización de Facturas | Silvano Puccini</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>
+      FacturIA - Sistema de Automatización de Facturas | Silvano Puccini
+    </title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Silvano Puccini</a>
+      </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li class="active"><a href="facturia.html">FacturIA</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/Silvano-Puccini"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/silvanopuccini"
+              class="icon brands alt fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="../index.html" class="logo">Silvano Puccini</a>
-					</header>
+      <!-- Main -->
+      <div id="main">
+        <!-- Post -->
+        <section class="post">
+          <header class="major">
+            <span class="date">Proyecto de Análisis de Datos con IA</span>
+            <h1>
+              FacturIA<br />
+              Sistema de Automatización de Facturas con IA
+            </h1>
+            <p>
+              Sistema automatizado 100% gratuito para procesar facturas en PDF
+              (texto e imágenes), extraer información con Google Gemini Vision,
+              almacenar datos en SQLite y visualizarlos en Power BI. Compatible
+              con fotos de WhatsApp y facturas escaneadas.
+            </p>
+          </header>
+          <div class="image main">
+            <img
+              src="../images/facturia-portada.png"
+              alt="FacturIA Dashboard"
+            />
+          </div>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="../index.html">Inicio</a></li>
-							<li class="active"><a href="facturia.html">FacturIA</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+          <h2>📋 Descripción del Proyecto</h2>
+          <p>
+            FacturIA es un sistema completo de automatización diseñado para
+            optimizar la gestión documental de facturas en formato PDF. El
+            proyecto integra tecnologías modernas de análisis de datos e
+            inteligencia artificial para transformar documentos no estructurados
+            en información valiosa para la toma de decisiones financieras.
+          </p>
 
-				<!-- Main -->
-					<div id="main">
+          <p>
+            <strong>Origen:</strong> Este proyecto fue desarrollado a partir de
+            una práctica del curso "Introductorio a Data Analytics" de
+            TuPrimeraExperiencia.com, donde adapté y amplié la propuesta
+            original incorporando mejoras en la estructura del código,
+            presentación de resultados y documentación profesional.
+          </p>
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date">Proyecto de Análisis de Datos con IA</span>
-									<h1>FacturIA<br />
-									Sistema de Automatización de Facturas con IA</h1>
-									<p>Sistema automatizado 100% gratuito para procesar facturas en PDF (texto e imágenes), extraer información con Google Gemini Vision, almacenar datos en SQLite y visualizarlos en Power BI. Compatible con fotos de WhatsApp y facturas escaneadas.</p>
-								</header>
-								<div class="image main"><img src="../images/facturia-portada.png" alt="FacturIA Dashboard" /></div>
+          <h2>🎯 Problema que Resuelve</h2>
+          <p>
+            Las empresas reciben decenas o cientos de facturas mensualmente en
+            formato PDF. El procesamiento manual de estos documentos consume
+            tiempo valioso y es propenso a errores. FacturIA automatiza
+            completamente este proceso:
+          </p>
+          <ul>
+            <li>
+              <strong>Antes:</strong> Abrir cada PDF, copiar datos manualmente a
+              Excel, verificar importes, clasificar por proveedor (horas de
+              trabajo)
+            </li>
+            <li>
+              <strong>Con FacturIA:</strong> Procesar automáticamente todas las
+              facturas en minutos, extraer datos con IA, almacenar en base de
+              datos y visualizar en dashboards interactivos
+            </li>
+          </ul>
 
-								<h2>📋 Descripción del Proyecto</h2>
-								<p>FacturIA es un sistema completo de automatización diseñado para optimizar la gestión documental de facturas en formato PDF. El proyecto integra tecnologías modernas de análisis de datos e inteligencia artificial para transformar documentos no estructurados en información valiosa para la toma de decisiones financieras.</p>
+          <h2>⚙️ Cómo Funciona (Flujo de Trabajo)</h2>
+          <ol>
+            <li>
+              <strong>Ingesta de Datos:</strong> El sistema recorre carpetas
+              organizadas con facturas en PDF (acepta PDFs con texto,
+              escaneados, fotos de WhatsApp)
+            </li>
+            <li>
+              <strong>Detección Inteligente:</strong> Analiza automáticamente si
+              el PDF contiene texto extraíble o es una imagen
+            </li>
+            <li>
+              <strong>Extracción Dual:</strong>
+              <ul>
+                <li>
+                  <strong>PDFs con texto:</strong> Extrae con PyMuPDF y envía a
+                  Google Gemini
+                </li>
+                <li>
+                  <strong>PDFs con imagen:</strong> Convierte a imagen y usa
+                  Google Gemini Vision (IA multimodal que "ve" la factura)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Procesamiento con IA:</strong> Google Gemini Vision
+              analiza la factura y extrae:
+              <ul>
+                <li>Fecha de emisión (formato dd/mm/aaaa)</li>
+                <li>Nombre del proveedor</li>
+                <li>Concepto o descripción del servicio/producto</li>
+                <li>Importe total</li>
+                <li>Moneda (EUR, USD, pesos, u otros)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Estructuración:</strong> La IA devuelve los datos en
+              formato CSV estructurado
+            </li>
+            <li>
+              <strong>Conversión de Divisas:</strong> Convierte automáticamente
+              dólares a euros (tasa configurable)
+            </li>
+            <li>
+              <strong>Almacenamiento:</strong> Guarda todos los registros en una
+              base de datos SQLite
+            </li>
+            <li>
+              <strong>Visualización:</strong> Conecta Power BI a la base de
+              datos para crear dashboards interactivos
+            </li>
+          </ol>
 
-								<p><strong>Origen:</strong> Este proyecto fue desarrollado a partir de una práctica del curso "Introductorio a Data Analytics" de TuPrimeraExperiencia.com, donde adapté y amplié la propuesta original incorporando mejoras en la estructura del código, presentación de resultados y documentación profesional.</p>
+          <h2>🛠️ Tecnologías Utilizadas</h2>
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Backend & Procesamiento</h3>
+              <ul>
+                <li><strong>Python 3.x</strong> - Lenguaje principal</li>
+                <li><strong>Pandas</strong> - Manipulación de datos</li>
+                <li><strong>PyMuPDF (fitz)</strong> - Extracción de PDFs</li>
+                <li>
+                  <strong>Google Gemini Vision API</strong> - IA multimodal
+                  (texto + imágenes) 🆓
+                </li>
+                <li>
+                  <strong>Pillow (PIL)</strong> - Procesamiento de imágenes
+                </li>
+                <li><strong>SQLAlchemy</strong> - ORM para base de datos</li>
+                <li>
+                  <strong>python-dotenv</strong> - Gestión de variables de
+                  entorno
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Almacenamiento & Visualización</h3>
+              <ul>
+                <li><strong>SQLite</strong> - Base de datos ligera</li>
+                <li><strong>Power BI</strong> - Dashboards interactivos</li>
+                <li><strong>ODBC</strong> - Conexión Power BI ↔ SQLite</li>
+              </ul>
+              <h3 style="margin-top: 20px">Ventajas</h3>
+              <ul>
+                <li>
+                  <strong>100% Gratuito</strong> - Usa Google Gemini API sin
+                  costos
+                </li>
+                <li>
+                  <strong>Sin OCR adicional</strong> - Gemini Vision lee
+                  imágenes directamente
+                </li>
+              </ul>
+            </div>
+          </div>
 
-								<h2>🎯 Problema que Resuelve</h2>
-								<p>Las empresas reciben decenas o cientos de facturas mensualmente en formato PDF. El procesamiento manual de estos documentos consume tiempo valioso y es propenso a errores. FacturIA automatiza completamente este proceso:</p>
-								<ul>
-									<li><strong>Antes:</strong> Abrir cada PDF, copiar datos manualmente a Excel, verificar importes, clasificar por proveedor (horas de trabajo)</li>
-									<li><strong>Con FacturIA:</strong> Procesar automáticamente todas las facturas en minutos, extraer datos con IA, almacenar en base de datos y visualizar en dashboards interactivos</li>
-								</ul>
+          <h2>📊 Resultados Obtenidos</h2>
+          <h3>Dashboard de Power BI</h3>
+          <p>El sistema genera un dashboard interactivo que permite:</p>
+          <ul>
+            <li>
+              <strong>KPIs Principales:</strong> Total de facturas procesadas,
+              importe total, gasto promedio por factura
+            </li>
+            <li>
+              <strong>Análisis Temporal:</strong> Evolución del gasto mes a mes
+              con gráficos de líneas
+            </li>
+            <li>
+              <strong>Análisis por Proveedor:</strong> Top proveedores por
+              importe, distribución de gastos
+            </li>
+            <li>
+              <strong>Análisis por Concepto:</strong> Clasificación de gastos
+              por tipo de servicio/producto
+            </li>
+            <li>
+              <strong>Filtros Interactivos:</strong> Por fecha, proveedor, rango
+              de importes, moneda
+            </li>
+          </ul>
 
-								<h2>⚙️ Cómo Funciona (Flujo de Trabajo)</h2>
-								<ol>
-									<li><strong>Ingesta de Datos:</strong> El sistema recorre carpetas organizadas con facturas en PDF (acepta PDFs con texto, escaneados, fotos de WhatsApp)</li>
-									<li><strong>Detección Inteligente:</strong> Analiza automáticamente si el PDF contiene texto extraíble o es una imagen</li>
-									<li><strong>Extracción Dual:</strong>
-										<ul>
-											<li><strong>PDFs con texto:</strong> Extrae con PyMuPDF y envía a Google Gemini</li>
-											<li><strong>PDFs con imagen:</strong> Convierte a imagen y usa Google Gemini Vision (IA multimodal que "ve" la factura)</li>
-										</ul>
-									</li>
-									<li><strong>Procesamiento con IA:</strong> Google Gemini Vision analiza la factura y extrae:
-										<ul>
-											<li>Fecha de emisión (formato dd/mm/aaaa)</li>
-											<li>Nombre del proveedor</li>
-											<li>Concepto o descripción del servicio/producto</li>
-											<li>Importe total</li>
-											<li>Moneda (EUR, USD, pesos, u otros)</li>
-										</ul>
-									</li>
-									<li><strong>Estructuración:</strong> La IA devuelve los datos en formato CSV estructurado</li>
-									<li><strong>Conversión de Divisas:</strong> Convierte automáticamente dólares a euros (tasa configurable)</li>
-									<li><strong>Almacenamiento:</strong> Guarda todos los registros en una base de datos SQLite</li>
-									<li><strong>Visualización:</strong> Conecta Power BI a la base de datos para crear dashboards interactivos</li>
-								</ol>
+          <h3>Métricas del Proyecto</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Métrica</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tiempo de procesamiento</td>
+                  <td>~3-5 segundos por factura</td>
+                </tr>
+                <tr>
+                  <td>Precisión de extracción</td>
+                  <td>95%+ con Google Gemini Vision</td>
+                </tr>
+                <tr>
+                  <td>Reducción de tiempo manual</td>
+                  <td>80-90% vs. entrada manual</td>
+                </tr>
+                <tr>
+                  <td>Formatos soportados</td>
+                  <td>
+                    PDFs con texto, escaneados, fotos de WhatsApp, capturas de
+                    pantalla
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-								<h2>🛠️ Tecnologías Utilizadas</h2>
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<h3>Backend & Procesamiento</h3>
-										<ul>
-											<li><strong>Python 3.x</strong> - Lenguaje principal</li>
-											<li><strong>Pandas</strong> - Manipulación de datos</li>
-											<li><strong>PyMuPDF (fitz)</strong> - Extracción de PDFs</li>
-											<li><strong>Google Gemini Vision API</strong> - IA multimodal (texto + imágenes) 🆓</li>
-											<li><strong>Pillow (PIL)</strong> - Procesamiento de imágenes</li>
-											<li><strong>SQLAlchemy</strong> - ORM para base de datos</li>
-											<li><strong>python-dotenv</strong> - Gestión de variables de entorno</li>
-										</ul>
-									</div>
-									<div class="col-6 col-12-small">
-										<h3>Almacenamiento & Visualización</h3>
-										<ul>
-											<li><strong>SQLite</strong> - Base de datos ligera</li>
-											<li><strong>Power BI</strong> - Dashboards interactivos</li>
-											<li><strong>ODBC</strong> - Conexión Power BI ↔ SQLite</li>
-										</ul>
-										<h3 style="margin-top: 20px;">Ventajas</h3>
-										<ul>
-											<li><strong>100% Gratuito</strong> - Usa Google Gemini API sin costos</li>
-											<li><strong>Sin OCR adicional</strong> - Gemini Vision lee imágenes directamente</li>
-										</ul>
-									</div>
-								</div>
+          <h2>💡 Aprendizajes Clave</h2>
+          <ul>
+            <li>
+              <strong>IA Multimodal:</strong> Implementar Google Gemini Vision
+              para procesar tanto texto como imágenes en un mismo flujo,
+              permitiendo leer facturas escaneadas y fotografías sin OCR
+              adicional
+            </li>
+            <li>
+              <strong>Detección Inteligente:</strong> Desarrollar lógica para
+              identificar automáticamente si un PDF contiene texto extraíble o
+              imágenes, aplicando el método de procesamiento apropiado para cada
+              caso
+            </li>
+            <li>
+              <strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos
+              para que la IA extraiga datos estructurados de manera consistente,
+              tanto de texto como de imágenes visuales
+            </li>
+            <li>
+              <strong>Procesamiento de Imágenes:</strong> Convertir PDFs a
+              imágenes de alta calidad (2x zoom) usando PyMuPDF y procesarlas
+              con Pillow para enviarlas a la API de visión
+            </li>
+            <li>
+              <strong>APIs Gratuitas:</strong> Aprovechar Google Gemini API
+              (100% gratuita) como alternativa viable a servicios pagos,
+              manteniendo alta precisión en la extracción de datos
+            </li>
+            <li>
+              <strong>Manejo de Errores Robusto:</strong> Implementar
+              validaciones exhaustivas para facturas con formatos no estándar,
+              imágenes borrosas o datos incompletos, evitando que el sistema se
+              detenga
+            </li>
+            <li>
+              <strong>Integración de Tecnologías:</strong> Conectar Python →
+              Google Gemini Vision → SQLite → Power BI en un flujo automatizado
+              end-to-end
+            </li>
+            <li>
+              <strong>Seguridad de Datos:</strong> Proteger API keys y datos
+              sensibles usando .env y .gitignore, asegurando que información
+              confidencial nunca se suba al repositorio
+            </li>
+          </ul>
 
-								<h2>📊 Resultados Obtenidos</h2>
-								<h3>Dashboard de Power BI</h3>
-								<p>El sistema genera un dashboard interactivo que permite:</p>
-								<ul>
-									<li><strong>KPIs Principales:</strong> Total de facturas procesadas, importe total, gasto promedio por factura</li>
-									<li><strong>Análisis Temporal:</strong> Evolución del gasto mes a mes con gráficos de líneas</li>
-									<li><strong>Análisis por Proveedor:</strong> Top proveedores por importe, distribución de gastos</li>
-									<li><strong>Análisis por Concepto:</strong> Clasificación de gastos por tipo de servicio/producto</li>
-									<li><strong>Filtros Interactivos:</strong> Por fecha, proveedor, rango de importes, moneda</li>
-								</ul>
+          <h2>🔗 Enlaces del Proyecto</h2>
+          <ul class="actions special">
+            <li>
+              <a
+                href="https://github.com/SilvanoPuccini/FacturIA"
+                class="button large primary icon brands fa-github"
+                >Ver Proyecto en GitHub</a
+              >
+            </li>
+          </ul>
 
-								<h3>Métricas del Proyecto</h3>
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>Métrica</th>
-												<th>Resultado</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Tiempo de procesamiento</td>
-												<td>~3-5 segundos por factura</td>
-											</tr>
-											<tr>
-												<td>Precisión de extracción</td>
-												<td>95%+ con Google Gemini Vision</td>
-											</tr>
-											<tr>
-												<td>Reducción de tiempo manual</td>
-												<td>80-90% vs. entrada manual</td>
-											</tr>
-											<tr>
-												<td>Formatos soportados</td>
-												<td>PDFs con texto, escaneados, fotos de WhatsApp, capturas de pantalla</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+          <hr />
 
-								<h2>💡 Aprendizajes Clave</h2>
-								<ul>
-									<li><strong>IA Multimodal:</strong> Implementar Google Gemini Vision para procesar tanto texto como imágenes en un mismo flujo, permitiendo leer facturas escaneadas y fotografías sin OCR adicional</li>
-									<li><strong>Detección Inteligente:</strong> Desarrollar lógica para identificar automáticamente si un PDF contiene texto extraíble o imágenes, aplicando el método de procesamiento apropiado para cada caso</li>
-									<li><strong>Ingeniería de Prompts:</strong> Diseñar prompts efectivos para que la IA extraiga datos estructurados de manera consistente, tanto de texto como de imágenes visuales</li>
-									<li><strong>Procesamiento de Imágenes:</strong> Convertir PDFs a imágenes de alta calidad (2x zoom) usando PyMuPDF y procesarlas con Pillow para enviarlas a la API de visión</li>
-									<li><strong>APIs Gratuitas:</strong> Aprovechar Google Gemini API (100% gratuita) como alternativa viable a servicios pagos, manteniendo alta precisión en la extracción de datos</li>
-									<li><strong>Manejo de Errores Robusto:</strong> Implementar validaciones exhaustivas para facturas con formatos no estándar, imágenes borrosas o datos incompletos, evitando que el sistema se detenga</li>
-									<li><strong>Integración de Tecnologías:</strong> Conectar Python → Google Gemini Vision → SQLite → Power BI en un flujo automatizado end-to-end</li>
-									<li><strong>Seguridad de Datos:</strong> Proteger API keys y datos sensibles usando .env y .gitignore, asegurando que información confidencial nunca se suba al repositorio</li>
-								</ul>
+          <h2>📧 ¿Interesado en este proyecto?</h2>
+          <p>
+            Si quieres saber más sobre cómo implementé este sistema o discutir
+            colaboraciones, no dudes en contactarme:
+          </p>
+          <ul>
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:silvano.jm.puccini@gmail.com"
+                >silvano.jm.puccini@gmail.com</a
+              >
+            </li>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/Silvano-Puccini"
+                >linkedin.com/in/Silvano-Puccini</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
 
-								<h2>🔗 Enlaces del Proyecto</h2>
-								<ul class="actions special">
-									<li><a href="https://github.com/SilvanoPuccini/FacturIA" class="button large primary">Ver Código en GitHub</a></li>
-									<li><a href="https://github.com/SilvanoPuccini/FacturIA#readme" class="button large">Documentación Técnica</a></li>
-								</ul>
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:silvano.jm.puccini@gmail.com"
+                >silvano.jm.puccini@gmail.com</a
+              >
+            </p>
+          </section>
+          <section>
+            <h3>Redes Sociales</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/Silvano-Puccini"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/silvanopuccini"
+                  class="icon brands alt fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
 
-								<hr />
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Silvano Puccini</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
 
-								<h2>📧 ¿Interesado en este proyecto?</h2>
-								<p>Si quieres saber más sobre cómo implementé este sistema o discutir colaboraciones, no dudes en contactarme:</p>
-								<ul>
-									<li><strong>Email:</strong> <a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></li>
-									<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Silvano-Puccini">linkedin.com/in/Silvano-Puccini</a></li>
-								</ul>
-
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<section class="split contact">
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Redes Sociales</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Silvano Puccini</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
 </html>
