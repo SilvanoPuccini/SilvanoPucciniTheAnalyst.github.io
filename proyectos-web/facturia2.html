@@ -25,8 +25,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="../index.html">Proyectos</a></li>
-							<li><a href="../sobre-mi.html">Sobre Mí</a></li>
+							<li><a href="../index.html" data-i18n="nav.projects">Proyectos</a></li>
+							<li><a href="../sobre-mi.html" data-i18n="nav.about">Sobre Mí</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -319,46 +319,51 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<h3>¿Interesado en mis proyectos?</h3>
-							<p>
-								Si quieres saber más sobre cómo implementé estos sistemas o discutir
+							<h3 data-i18n="footer.interested">¿Interesado en mis proyectos?</h3>
+							<p data-i18n="footer.description">
+            Si quieres saber más sobre cómo implementé estos sistemas o discutir
 								colaboraciones, no dudes en contactarme:
 							</p>
-							<form method="post" action="#">
+							<form method="POST" action="https://formspree.io/f/xvgvlzgk" id="contact-form">
 								<div class="fields">
 									<div class="field">
-										<label for="name">Nombre</label>
-										<input type="text" name="name" id="name" />
+										<label for="name" data-i18n="footer.name">Nombre</label>
+                <input type="text" name="name" id="name" required />
 									</div>
 									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<label for="email" data-i18n="footer.email">Email</label>
+                <input type="email" name="email" id="email" required />
 									</div>
 									<div class="field">
-										<label for="message">Mensaje</label>
-										<textarea name="message" id="message" rows="3"></textarea>
+										<label for="message" data-i18n="footer.message">Mensaje</label>
+                <textarea name="message" id="message" rows="3" required></textarea>
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Enviar Mensaje" /></li>
+									<li><input type="submit" value="Enviar Mensaje" data-i18n="footer.submit" /></li>
 								</ul>
-							</form>
+          <p id="form-status" style="margin-top: 1em; display: none;"></p>
+        </form>
 						</section>
 						<section class="split contact">
 							<section class="alt">
-								<h3>Ubicación</h3>
-								<p>Pucón, Chile</p>
+								<h3 data-i18n="footer.location">Ubicación</h3>
+            <p>
+              <a href="https://www.google.com/maps/place/Puc%C3%B3n,+Araucan%C3%ADa,+Chile/@-39.2813889,-71.9647222,13z" target="_blank" rel="noopener noreferrer">
+                Pucón, Chile
+              </a>
+            </p>
 							</section>
 							<section>
-								<h3>Teléfono</h3>
+								<h3 data-i18n="footer.phone">Teléfono</h3>
 								<p><a href="tel:+5492494309584">+54 9 249 4309584</a></p>
 							</section>
 							<section>
-								<h3>Email</h3>
+								<h3 data-i18n="footer.email">Email</h3>
 								<p><a href="mailto:silvano.jm.puccini@gmail.com">silvano.jm.puccini@gmail.com</a></p>
 							</section>
 							<section>
-								<h3>Social</h3>
+								<h3 data-i18n="footer.social">Social</h3>
 								<ul class="icons alt">
 									<li><a href="https://www.linkedin.com/in/Silvano-Puccini" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									<li><a href="https://github.com/silvanopuccini" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
@@ -382,6 +387,6 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-
-	</body>
+    <script src="../assets/js/custom.js"></script>
+  </body>
 </html>
