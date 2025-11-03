@@ -153,8 +153,82 @@ function setupPagination() {
     showPage(1);
 }
 
-// Initialize pagination when DOM is ready
-document.addEventListener('DOMContentLoaded', setupPagination);
+// DON'T initialize pagination automatically - only on individual project pages
+// document.addEventListener('DOMContentLoaded', setupPagination);
+
+// ============================================
+// 2B. PROJECT NAVIGATION (for individual project pages)
+// ============================================
+
+const projects = [
+    { slug: 'facturia2', titleEs: 'FacturIA 2.0', titleEn: 'FacturIA 2.0' },
+    { slug: 'facturia', titleEs: 'FacturIA', titleEn: 'FacturIA' },
+    { slug: 'analisis-clientes', titleEs: 'Market Basket Analysis', titleEn: 'Market Basket Analysis' },
+    { slug: 'dashboard-ventas', titleEs: 'Dashboard Power BI', titleEn: 'Power BI Dashboard' }
+];
+
+function setupProjectNavigation() {
+    // Detect current project from URL
+    const currentPath = window.location.pathname;
+    const currentProject = projects.findIndex(p => currentPath.includes(p.slug));
+
+    if (currentProject === -1) return; // Not on a project page
+
+    const prevIndex = currentProject > 0 ? currentProject - 1 : projects.length - 1;
+    const nextIndex = currentProject < projects.length - 1 ? currentProject + 1 : 0;
+
+    // Find or create pagination container
+    let paginationDiv = document.querySelector('.pagination');
+    if (!paginationDiv) {
+        paginationDiv = document.createElement('div');
+        paginationDiv.className = 'pagination';
+        paginationDiv.style.textAlign = 'center';
+        paginationDiv.style.marginTop = '2em';
+
+        // Insert before footer
+        const footer = document.querySelector('#footer');
+        if (footer) {
+            footer.parentNode.insertBefore(paginationDiv, footer);
+        }
+    }
+
+    // Clear and build navigation
+    paginationDiv.innerHTML = '';
+    paginationDiv.style.display = 'flex';
+    paginationDiv.style.justifyContent = 'center';
+    paginationDiv.style.alignItems = 'center';
+    paginationDiv.style.gap = '1em';
+
+    // Previous button
+    const prevBtn = document.createElement('a');
+    prevBtn.href = `${projects[prevIndex].slug}.html`;
+    prevBtn.className = 'button';
+    prevBtn.innerHTML = `← <span data-i18n="nav.prevProject">${currentLang === 'es' ? 'Proyecto Anterior' : 'Previous Project'}</span>`;
+    prevBtn.style.margin = '0';
+    paginationDiv.appendChild(prevBtn);
+
+    // Project counter
+    const counter = document.createElement('span');
+    counter.textContent = `${currentProject + 1} / ${projects.length}`;
+    counter.style.padding = '0 1em';
+    counter.style.fontWeight = 'bold';
+    paginationDiv.appendChild(counter);
+
+    // Next button
+    const nextBtn = document.createElement('a');
+    nextBtn.href = `${projects[nextIndex].slug}.html`;
+    nextBtn.className = 'button';
+    nextBtn.innerHTML = `<span data-i18n="nav.nextProject">${currentLang === 'es' ? 'Siguiente Proyecto' : 'Next Project'}</span> →`;
+    nextBtn.style.margin = '0';
+    paginationDiv.appendChild(nextBtn);
+}
+
+// Initialize project navigation when on individual project pages
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.includes('/proyectos-web/')) {
+        setupProjectNavigation();
+    }
+});
 
 // ============================================
 // 3. LANGUAGE SWITCHER (i18n)
@@ -166,6 +240,8 @@ const translations = {
         // Navigation
         'nav.projects': 'Proyectos',
         'nav.about': 'Sobre Mí',
+        'nav.prevProject': 'Proyecto Anterior',
+        'nav.nextProject': 'Siguiente Proyecto',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Analista de Datos',
@@ -263,12 +339,31 @@ const translations = {
         'about.languages.spanish': 'Español:',
         'about.languages.spanishLevel': 'Nativo',
         'about.languages.english': 'Inglés:',
-        'about.languages.englishLevel': 'Nivel intermedio (lectura y escritura técnica)'
+        'about.languages.englishLevel': 'Nivel intermedio (lectura y escritura técnica)',
+
+        // Project Pages
+        'facturia2.date': 'Proyecto Full Stack con IA - 2025',
+        'facturia2.title': 'FacturIA 2.0<br />Sistema Inteligente de Gestión Financiera',
+        'facturia2.description': 'Sistema automatizado completo de procesamiento, clasificación y análisis de transacciones financieras mediante <strong>Inteligencia Artificial</strong>. Automatiza todo el ciclo: desde la recepción de comprobantes por email hasta la generación de reportes ejecutivos con visualizaciones interactivas en tiempo real.',
+
+        'facturia.date': 'Proyecto de Análisis de Datos con IA',
+        'facturia.title': 'FacturIA<br />Sistema de Automatización de Facturas con IA',
+        'facturia.description': 'Sistema automatizado 100% gratuito para procesar facturas en PDF (texto e imágenes), extraer información con Google Gemini Vision, almacenar datos en SQLite y visualizarlos en Power BI. Compatible con fotos de WhatsApp y facturas escaneadas.',
+
+        'analisis.date': 'Proyecto de Análisis de Datos',
+        'analisis.title': 'Market Basket Analysis<br />Análisis de Canasta de Mercado',
+        'analisis.description': 'Análisis de 4.9 millones de transacciones para descubrir patrones de compra y reglas de asociación que optimicen estrategias de cross-selling.',
+
+        'dashboard.date': 'Proyecto de Business Intelligence',
+        'dashboard.title': 'Dashboard de Ventas<br />Análisis Interactivo con Power BI',
+        'dashboard.description': 'Dashboard interactivo para análisis de ventas y rendimiento por región, canal y producto, con KPIs dinámicos y visualizaciones profesionales.'
     },
     en: {
         // Navigation
         'nav.projects': 'Projects',
         'nav.about': 'About Me',
+        'nav.prevProject': 'Previous Project',
+        'nav.nextProject': 'Next Project',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Data Analyst',
@@ -366,7 +461,24 @@ const translations = {
         'about.languages.spanish': 'Spanish:',
         'about.languages.spanishLevel': 'Native',
         'about.languages.english': 'English:',
-        'about.languages.englishLevel': 'Intermediate level (technical reading and writing)'
+        'about.languages.englishLevel': 'Intermediate level (technical reading and writing)',
+
+        // Project Pages
+        'facturia2.date': 'Full Stack Project with AI - 2025',
+        'facturia2.title': 'FacturIA 2.0<br />Intelligent Financial Management System',
+        'facturia2.description': 'Complete automated system for processing, classifying and analyzing financial transactions using <strong>Artificial Intelligence</strong>. Automates the entire cycle: from receipt of documents via email to generating executive reports with real-time interactive visualizations.',
+
+        'facturia.date': 'Data Analysis Project with AI',
+        'facturia.title': 'FacturIA<br />Invoice Automation System with AI',
+        'facturia.description': '100% free automated system to process PDF invoices (text and images), extract information with Google Gemini Vision, store data in SQLite and visualize in Power BI. Compatible with WhatsApp photos and scanned invoices.',
+
+        'analisis.date': 'Data Analysis Project',
+        'analisis.title': 'Market Basket Analysis<br />Market Basket Analysis',
+        'analisis.description': 'Analysis of 4.9 million transactions to discover purchase patterns and association rules that optimize cross-selling strategies.',
+
+        'dashboard.date': 'Business Intelligence Project',
+        'dashboard.title': 'Sales Dashboard<br />Interactive Analysis with Power BI',
+        'dashboard.description': 'Interactive dashboard for sales and performance analysis by region, channel and product, with dynamic KPIs and professional visualizations.'
     }
 };
 
@@ -415,7 +527,7 @@ function createLanguageToggle() {
 
     const langToggle = document.createElement('li');
     langToggle.innerHTML = `
-        <a href="#" id="lang-toggle" class="button small" style="padding: 0.5em 1em; margin-left: 1em; color: white;">
+        <a href="#" id="lang-toggle" class="button small" style="padding: 0.5em 1em; margin-left: 1em; color: white !important; border-color: white !important;">
             ${currentLang === 'es' ? 'EN' : 'ES'}
         </a>
     `;
