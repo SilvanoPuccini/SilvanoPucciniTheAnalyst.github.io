@@ -153,8 +153,82 @@ function setupPagination() {
     showPage(1);
 }
 
-// Initialize pagination when DOM is ready
-document.addEventListener('DOMContentLoaded', setupPagination);
+// DON'T initialize pagination automatically - only on individual project pages
+// document.addEventListener('DOMContentLoaded', setupPagination);
+
+// ============================================
+// 2B. PROJECT NAVIGATION (for individual project pages)
+// ============================================
+
+const projects = [
+    { slug: 'facturia2', titleEs: 'FacturIA 2.0', titleEn: 'FacturIA 2.0' },
+    { slug: 'facturia', titleEs: 'FacturIA', titleEn: 'FacturIA' },
+    { slug: 'analisis-clientes', titleEs: 'Market Basket Analysis', titleEn: 'Market Basket Analysis' },
+    { slug: 'dashboard-ventas', titleEs: 'Dashboard Power BI', titleEn: 'Power BI Dashboard' }
+];
+
+function setupProjectNavigation() {
+    // Detect current project from URL
+    const currentPath = window.location.pathname;
+    const currentProject = projects.findIndex(p => currentPath.includes(p.slug));
+
+    if (currentProject === -1) return; // Not on a project page
+
+    const prevIndex = currentProject > 0 ? currentProject - 1 : projects.length - 1;
+    const nextIndex = currentProject < projects.length - 1 ? currentProject + 1 : 0;
+
+    // Find or create pagination container
+    let paginationDiv = document.querySelector('.pagination');
+    if (!paginationDiv) {
+        paginationDiv = document.createElement('div');
+        paginationDiv.className = 'pagination';
+        paginationDiv.style.textAlign = 'center';
+        paginationDiv.style.marginTop = '2em';
+
+        // Insert before footer
+        const footer = document.querySelector('#footer');
+        if (footer) {
+            footer.parentNode.insertBefore(paginationDiv, footer);
+        }
+    }
+
+    // Clear and build navigation
+    paginationDiv.innerHTML = '';
+    paginationDiv.style.display = 'flex';
+    paginationDiv.style.justifyContent = 'center';
+    paginationDiv.style.alignItems = 'center';
+    paginationDiv.style.gap = '1em';
+
+    // Previous button
+    const prevBtn = document.createElement('a');
+    prevBtn.href = `${projects[prevIndex].slug}.html`;
+    prevBtn.className = 'button';
+    prevBtn.innerHTML = `← <span data-i18n="nav.prevProject">${currentLang === 'es' ? 'Proyecto Anterior' : 'Previous Project'}</span>`;
+    prevBtn.style.margin = '0';
+    paginationDiv.appendChild(prevBtn);
+
+    // Project counter
+    const counter = document.createElement('span');
+    counter.textContent = `${currentProject + 1} / ${projects.length}`;
+    counter.style.padding = '0 1em';
+    counter.style.fontWeight = 'bold';
+    paginationDiv.appendChild(counter);
+
+    // Next button
+    const nextBtn = document.createElement('a');
+    nextBtn.href = `${projects[nextIndex].slug}.html`;
+    nextBtn.className = 'button';
+    nextBtn.innerHTML = `<span data-i18n="nav.nextProject">${currentLang === 'es' ? 'Siguiente Proyecto' : 'Next Project'}</span> →`;
+    nextBtn.style.margin = '0';
+    paginationDiv.appendChild(nextBtn);
+}
+
+// Initialize project navigation when on individual project pages
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.includes('/proyectos-web/')) {
+        setupProjectNavigation();
+    }
+});
 
 // ============================================
 // 3. LANGUAGE SWITCHER (i18n)
@@ -166,6 +240,8 @@ const translations = {
         // Navigation
         'nav.projects': 'Proyectos',
         'nav.about': 'Sobre Mí',
+        'nav.prevProject': 'Proyecto Anterior',
+        'nav.nextProject': 'Siguiente Proyecto',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Analista de Datos',
@@ -269,6 +345,8 @@ const translations = {
         // Navigation
         'nav.projects': 'Projects',
         'nav.about': 'About Me',
+        'nav.prevProject': 'Previous Project',
+        'nav.nextProject': 'Next Project',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Data Analyst',
@@ -415,7 +493,7 @@ function createLanguageToggle() {
 
     const langToggle = document.createElement('li');
     langToggle.innerHTML = `
-        <a href="#" id="lang-toggle" class="button small" style="padding: 0.5em 1em; margin-left: 1em; color: white;">
+        <a href="#" id="lang-toggle" class="button small" style="padding: 0.5em 1em; margin-left: 1em; color: white !important; border-color: white !important;">
             ${currentLang === 'es' ? 'EN' : 'ES'}
         </a>
     `;
