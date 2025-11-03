@@ -339,7 +339,24 @@ const translations = {
         'about.languages.spanish': 'Español:',
         'about.languages.spanishLevel': 'Nativo',
         'about.languages.english': 'Inglés:',
-        'about.languages.englishLevel': 'Nivel intermedio (lectura y escritura técnica)'
+        'about.languages.englishLevel': 'Nivel intermedio (lectura y escritura técnica)',
+
+        // Project Pages
+        'facturia2.date': 'Proyecto Full Stack con IA - 2025',
+        'facturia2.title': 'FacturIA 2.0<br />Sistema Inteligente de Gestión Financiera',
+        'facturia2.description': 'Sistema automatizado completo de procesamiento, clasificación y análisis de transacciones financieras mediante <strong>Inteligencia Artificial</strong>. Automatiza todo el ciclo: desde la recepción de comprobantes por email hasta la generación de reportes ejecutivos con visualizaciones interactivas en tiempo real.',
+
+        'facturia.date': 'Proyecto de Análisis de Datos con IA',
+        'facturia.title': 'FacturIA<br />Sistema de Automatización de Facturas con IA',
+        'facturia.description': 'Sistema automatizado 100% gratuito para procesar facturas en PDF (texto e imágenes), extraer información con Google Gemini Vision, almacenar datos en SQLite y visualizarlos en Power BI. Compatible con fotos de WhatsApp y facturas escaneadas.',
+
+        'analisis.date': 'Proyecto de Análisis de Datos',
+        'analisis.title': 'Market Basket Analysis<br />Análisis de Canasta de Mercado',
+        'analisis.description': 'Análisis de 4.9 millones de transacciones para descubrir patrones de compra y reglas de asociación que optimicen estrategias de cross-selling.',
+
+        'dashboard.date': 'Proyecto de Business Intelligence',
+        'dashboard.title': 'Dashboard de Ventas<br />Análisis Interactivo con Power BI',
+        'dashboard.description': 'Dashboard interactivo para análisis de ventas y rendimiento por región, canal y producto, con KPIs dinámicos y visualizaciones profesionales.'
     },
     en: {
         // Navigation
@@ -444,7 +461,24 @@ const translations = {
         'about.languages.spanish': 'Spanish:',
         'about.languages.spanishLevel': 'Native',
         'about.languages.english': 'English:',
-        'about.languages.englishLevel': 'Intermediate level (technical reading and writing)'
+        'about.languages.englishLevel': 'Intermediate level (technical reading and writing)',
+
+        // Project Pages
+        'facturia2.date': 'Full Stack Project with AI - 2025',
+        'facturia2.title': 'FacturIA 2.0<br />Intelligent Financial Management System',
+        'facturia2.description': 'Complete automated system for processing, classifying and analyzing financial transactions using <strong>Artificial Intelligence</strong>. Automates the entire cycle: from receipt of documents via email to generating executive reports with real-time interactive visualizations.',
+
+        'facturia.date': 'Data Analysis Project with AI',
+        'facturia.title': 'FacturIA<br />Invoice Automation System with AI',
+        'facturia.description': '100% free automated system to process PDF invoices (text and images), extract information with Google Gemini Vision, store data in SQLite and visualize in Power BI. Compatible with WhatsApp photos and scanned invoices.',
+
+        'analisis.date': 'Data Analysis Project',
+        'analisis.title': 'Market Basket Analysis<br />Market Basket Analysis',
+        'analisis.description': 'Analysis of 4.9 million transactions to discover purchase patterns and association rules that optimize cross-selling strategies.',
+
+        'dashboard.date': 'Business Intelligence Project',
+        'dashboard.title': 'Sales Dashboard<br />Interactive Analysis with Power BI',
+        'dashboard.description': 'Interactive dashboard for sales and performance analysis by region, channel and product, with dynamic KPIs and professional visualizations.'
     }
 };
 
