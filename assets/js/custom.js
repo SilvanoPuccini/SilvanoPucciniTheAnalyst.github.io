@@ -203,7 +203,8 @@ function setupProjectNavigation() {
     const prevBtn = document.createElement('a');
     prevBtn.href = `${projects[prevIndex].slug}.html`;
     prevBtn.className = 'button';
-    prevBtn.innerHTML = `← <span data-i18n="nav.prevProject">${currentLang === 'es' ? 'Proyecto Anterior' : 'Previous Project'}</span>`;
+    prevBtn.setAttribute('data-i18n', 'nav.prevProject');
+    prevBtn.textContent = currentLang === 'es' ? '← Proyecto Anterior' : '← Previous Project';
     prevBtn.style.margin = '0';
     paginationDiv.appendChild(prevBtn);
 
@@ -218,7 +219,8 @@ function setupProjectNavigation() {
     const nextBtn = document.createElement('a');
     nextBtn.href = `${projects[nextIndex].slug}.html`;
     nextBtn.className = 'button';
-    nextBtn.innerHTML = `<span data-i18n="nav.nextProject">${currentLang === 'es' ? 'Siguiente Proyecto' : 'Next Project'}</span> →`;
+    nextBtn.setAttribute('data-i18n', 'nav.nextProject');
+    nextBtn.textContent = currentLang === 'es' ? 'Siguiente Proyecto →' : 'Next Project →';
     nextBtn.style.margin = '0';
     paginationDiv.appendChild(nextBtn);
 }
@@ -240,8 +242,8 @@ const translations = {
         // Navigation
         'nav.projects': 'Proyectos',
         'nav.about': 'Sobre Mí',
-        'nav.prevProject': 'Proyecto Anterior',
-        'nav.nextProject': 'Siguiente Proyecto',
+        'nav.prevProject': '← Proyecto Anterior',
+        'nav.nextProject': 'Siguiente Proyecto →',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Analista de Datos',
@@ -362,8 +364,8 @@ const translations = {
         // Navigation
         'nav.projects': 'Projects',
         'nav.about': 'About Me',
-        'nav.prevProject': 'Previous Project',
-        'nav.nextProject': 'Next Project',
+        'nav.prevProject': '← Previous Project',
+        'nav.nextProject': 'Next Project →',
 
         // Intro
         'intro.title': 'Silvano Puccini<br />Data Analyst',
@@ -503,10 +505,9 @@ function switchLanguage(lang) {
     // Update language toggle button
     updateLanguageToggle();
 
-    // Update pagination if it exists
-    const pagination = document.querySelector('.pagination');
-    if (pagination) {
-        setupPagination();
+    // Update project navigation if on project page
+    if (window.location.pathname.includes('/proyectos-web/')) {
+        setupProjectNavigation();
     }
 }
 
