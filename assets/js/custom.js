@@ -358,7 +358,7 @@ const translations = {
         'facturia.description': 'Sistema automatizado 100% gratuito para procesar facturas en PDF (texto e imágenes), extraer información con Google Gemini Vision, almacenar datos en SQLite y visualizarlos en Power BI. Compatible con fotos de WhatsApp y facturas escaneadas.',
 
         'analisis.date': 'Proyecto de Análisis de Datos',
-        'analisis.title': 'Market Basket Analysis<br />Análisis de Canasta de Mercado',
+        'analisis.title': 'Análisis de Canasta de Mercado',
         'analisis.description': 'Análisis de 4.9 millones de transacciones para descubrir patrones de compra y reglas de asociación que optimicen estrategias de cross-selling.',
 
         'dashboard.date': 'Proyecto de Business Intelligence',
@@ -750,7 +750,7 @@ const translations = {
         'facturia.description': '100% free automated system to process PDF invoices (text and images), extract information with Google Gemini Vision, store data in SQLite and visualize in Power BI. Compatible with WhatsApp photos and scanned invoices.',
 
         'analisis.date': 'Data Analysis Project',
-        'analisis.title': 'Market Basket Analysis<br />Market Basket Analysis',
+        'analisis.title': 'Market Basket Analysis',
         'analisis.description': 'Analysis of 4.9 million transactions to discover purchase patterns and association rules that optimize cross-selling strategies.',
 
         'dashboard.date': 'Business Intelligence Project',
