@@ -4159,11 +4159,11 @@ input, select, textarea {
 		}
 
 		#footer .pagination a, #footer .pagination span {
-			border-color: #e2e2e2;
+			border-color: #ffffff;
 		}
 
 		#footer .pagination a {
-			color: #717981 !important;
+			color: #ffffff !important;
 		}
 
 			#footer .pagination a:hover {
